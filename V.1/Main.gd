@@ -6,16 +6,28 @@ var spritedir = "down"
 var Loadplayer = preload("res://Player/Player.tscn")
 var Bomb = preload("res://Bomb/Bomb.tscn")
 var list_bomb = []
+var list_rock = []
 
 var player = Loadplayer.instance()
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
+	
 	player.position = Vector2(170,70)
+#	print(player.get_node("Sprite"))
 	add_child(player)
 	get_tree().root.print_tree_pretty()
 #	player.print_tree_pretty()
+	
+	var Rocks = get_node("rocks")
+	
+	for N in get_node("rocks").get_children():
+		Singleton.list_rock.append(N)
+	
+#	for n in Singleton.list_rock:
+#		print(n)
+	
 	
 	
 
@@ -34,6 +46,7 @@ func _process(delta):
 	elif Input.is_key_pressed(KEY_DOWN):
 		v.y = speed
 		spritedir = "down"
+		
 	
 	var ds = v * delta
 	if ds != Vector2(0,0):
@@ -65,11 +78,14 @@ func _input(event):
 		
 	if Input.is_key_pressed(KEY_SPACE):
 		var bomb = Bomb.instance()
+		
+		
 		bomb.scale = Vector2(1,1)
+		bomb.z_index = -1
 		bomb.position = Vector2($Player.get_position().x,$Player.get_position().y)
 		add_child(bomb)
-		list_bomb.append(bomb)
-		
+#		list_bomb.append(bomb)
+		get_tree().root.print_tree_pretty()
 		
 	pass
 #
@@ -78,5 +94,7 @@ func anim_switch(animation):
 	if player.get_node("AnimationPlayer").current_animation != "":
 #		player.get_node("AnimationPlayer").play(newanim)
 		player.get_node("AnimationPlayer").play(animation)
+
+
 	
 
