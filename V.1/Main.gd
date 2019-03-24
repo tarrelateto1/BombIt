@@ -32,7 +32,7 @@ func _ready():
 	
 
 func _process(delta):
-	
+#	$Control/Label.text = "Player 1 = position " + String($Player.get_position().x) + " " + String($Player.get_position().y) 
 	var v = Vector2()
 	if Input.is_key_pressed(KEY_LEFT):
 		v.x = -speed
@@ -46,6 +46,7 @@ func _process(delta):
 	elif Input.is_key_pressed(KEY_DOWN):
 		v.y = speed
 		spritedir = "down"
+		
 		
 	
 	var ds = v * delta
