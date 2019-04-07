@@ -6,9 +6,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 10, 12.2506 )
 
-[node name="Bomb" type="Area2D" index="0"]
+[node name="Bomb" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -26,13 +26,19 @@ scale = Vector2( 0.03, 0.03 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Z Index" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="Collision_H" type="CollisionShape2D" parent="." index="1"]
 
-scale = Vector2( 1.58571, 1.56649 )
+scale = Vector2( 1.23077, 1.04914 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Timer" type="Timer" parent="." index="2"]
+[node name="Collision_V" type="CollisionShape2D" parent="." index="2"]
+
+scale = Vector2( 1.23077, 1.04914 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Timer" type="Timer" parent="." index="3"]
 
 process_mode = 1
 wait_time = 1.0

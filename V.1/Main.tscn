@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Tilemap/tile.tres" type="TileSet" id=2]
 [ext_resource path="res://TileMap1.gd" type="Script" id=3]
 [ext_resource path="res://Rock/Rock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://wall/wallD.tscn" type="PackedScene" id=5]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -63,15 +64,17 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 65538, 0, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 1, 0, 65551, 1, 0, 65552, 2, 0, 131074, 7, 0, 131088, 3, 0, 196610, 7, 0, 196612, 8, 0, 196614, 8, 0, 196616, 8, 0, 196618, 8, 0, 196620, 8, 0, 196622, 8, 0, 196624, 3, 0, 262146, 7, 0, 262160, 3, 0, 327680, 0, 0, 327682, 7, 0, 327684, 8, 0, 327686, 8, 0, 327688, 8, 0, 327690, 8, 0, 327692, 8, 0, 327694, 8, 0, 327696, 3, 0, 393218, 7, 0, 393232, 3, 0, 458754, 7, 0, 458756, 8, 0, 458758, 8, 0, 458760, 8, 0, 458762, 8, 0, 458764, 8, 0, 458766, 8, 0, 458768, 3, 0, 524290, 7, 0, 524304, 3, 0, 589826, 7, 0, 589840, 3, 0, 655362, 6, 0, 655363, 5, 0, 655364, 5, 0, 655365, 5, 0, 655366, 5, 0, 655367, 5, 0, 655368, 5, 0, 655369, 5, 0, 655370, 5, 0, 655371, 5, 0, 655372, 5, 0, 655373, 5, 0, 655374, 5, 0, 655375, 5, 0, 655376, 4, 0 )
+tile_data = PoolIntArray( 65538, 0, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 1, 0, 65551, 1, 0, 65552, 2, 0, 131074, 7, 0, 131088, 3, 0, 196610, 7, 0, 196616, 8, 0, 196618, 8, 0, 196620, 8, 0, 196622, 8, 0, 196624, 3, 0, 262146, 7, 0, 262160, 3, 0, 327682, 7, 0, 327684, 8, 0, 327686, 8, 0, 327688, 8, 0, 327690, 8, 0, 327692, 8, 0, 327694, 8, 0, 327696, 3, 0, 393218, 7, 0, 393232, 3, 0, 458754, 7, 0, 458756, 8, 0, 458758, 8, 0, 458760, 8, 0, 458762, 8, 0, 458764, 8, 0, 458766, 8, 0, 458768, 3, 0, 524290, 7, 0, 524304, 3, 0, 589826, 7, 0, 589840, 3, 0, 655362, 6, 0, 655363, 5, 0, 655364, 5, 0, 655365, 5, 0, 655366, 5, 0, 655367, 5, 0, 655368, 5, 0, 655369, 5, 0, 655370, 5, 0, 655371, 5, 0, 655372, 5, 0, 655373, 5, 0, 655374, 5, 0, 655375, 5, 0, 655376, 4, 0 )
 script = ExtResource( 3 )
 _sections_unfolded = [ "Cell" ]
 
 [node name="rocks" type="Node2D" parent="." index="2"]
 
+editor/display_folded = true
+
 [node name="rock" parent="rocks" index="0" instance=ExtResource( 4 )]
 
-position = Vector2( 142.714, 79.6745 )
+position = Vector2( 336.17, 79.2437 )
 
 [node name="rock2" parent="rocks" index="1" instance=ExtResource( 4 )]
 
@@ -82,5 +85,20 @@ position = Vector2( 205.753, 77.9234 )
 position = Vector2( 268.792, 79.6745 )
 
 [node name="rock4" parent="rocks" index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 400.096, 80.1003 )
+scale = Vector2( 1.16773, 1.16399 )
+
+[node name="wall" type="Node2D" parent="." index="3"]
+
+[node name="StaticBody2D" parent="wall" index="0" instance=ExtResource( 5 )]
+
+position = Vector2( 144.001, 112.489 )
+scale = Vector2( 0.500028, 0.515274 )
+
+[node name="StaticBody2D2" parent="wall" index="1" instance=ExtResource( 5 )]
+
+position = Vector2( 208, 112 )
+scale = Vector2( 0.5, 0.5 )
 
 
