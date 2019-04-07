@@ -5,7 +5,7 @@ extends KinematicBody2D
 # var b = "textvar"
 
 var speed = 0
-const MAX_SPEED = 400
+const MAX_SPEED = 200
 var velocity = Vector2()
 var type
 var grid
@@ -20,6 +20,7 @@ var is_moving = false
 var target_pos = Vector2()
 var target_direction = Vector2()
 
+var Bomb = preload("res://Bomb/Bomb.tscn")
 
 func _ready():
 	grid = get_parent()
@@ -69,8 +70,6 @@ func _process(delta):
 	
 	if not is_moving and direction !=Vector2():
 		target_direction = direction
-		print(target_direction)
-		print("player : ",get_position())
 		if grid.is_cell_vacant(get_position(), target_direction):
 			target_pos = grid.update_child_pos(self)
 			is_moving = true
@@ -82,8 +81,6 @@ func _process(delta):
 #		print(pos)
 
 		var distance_to_target = Vector2(abs(target_pos.x - pos.x),abs(target_pos.y-pos.y))
-		print("target ",target_pos.x , " pos ", pos.x)
-		
 #		print(distance_to_target)
 		if abs(velocity.x) >distance_to_target.x:
 			velocity.x = distance_to_target.x * target_direction.x

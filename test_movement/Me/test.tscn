@@ -8,7 +8,6 @@
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
-position = Vector2( 352, 64 )
 mode = 0
 tile_set = null
 cell_size = Vector2( 32, 32 )
@@ -27,7 +26,7 @@ occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray(  )
 script = ExtResource( 1 )
-_sections_unfolded = [ "Cell" ]
+_sections_unfolded = [ "Cell", "Transform" ]
 
 [node name="gridmaster" type="Node2D" parent="TileMap" index="0"]
 

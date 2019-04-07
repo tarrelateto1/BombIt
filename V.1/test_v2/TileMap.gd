@@ -11,8 +11,13 @@ var halt_tile_size = tile_size / 2
 # จำนวนตาราง
 var grid_size = Vector2(10,10) 
 var grid=[]
+var grid_wall = [[1,1],[3,1],[5,1],[7,1],[9,1],   #แถวหนึ่ง
+			[1,3],[3,3],[5,3],[7,3],[9,3],    #แถวสาม
+			[1,5],[3,5],[8,5],					#แถวห้า
+			[6,6],								#แถวหก
+			[1,7],[3,7],[5,7],[6,7],[7,7],[9,7]			
+]
 
-onready var Obstacle = preload("res://Obstacle.tscn")
 
 
 func _ready():
@@ -23,12 +28,22 @@ func _ready():
 			grid[x].append(null)
 			
 	var Player =get_node("Player")
-	var start_pos = update_child_pos(Player)
+	var start_pos = update_child_pos($Player)
 	Player.set_position(start_pos)
 	print(Player)
 			
 	var positions= []
 	print(positions)
+	
+#	grid_rock.append([1,1])
+#	var grid_rock = [[1,1],[1,3]]
+##	print(grid_rock.size())
+#	for i in range(0, grid_rock.size()):
+#		for j in range(0, 2):
+#    	print(grid_rock[i][j])
+#	print(grid_rock[0][0])
+#	for i in grid_rock:
+#		print(i[0][0])
 #	2.create obstacles
 #
 #	for n in range(5):
@@ -46,23 +61,23 @@ func _ready():
 # ดูว่าสามารถเคลื่อนที่ไปได้หรอเปล่า
 func is_cell_vacant(pos,direction):
 	var grid_pos = world_to_map(pos)+direction
-	print("world : ",world_to_map(pos))
 #	print(grid_pos)
 	#ตรวจสอบตำแหน่งของ player ตำแหน่ง x	
 	if grid_pos.x<grid_size.x and grid_pos.x >=0 :
 		#ตรวจสอบตำแหน่งของ player ตำแหน่ง y
-		if grid_pos.y < grid_size.y and grid_pos.y>=0 :
-			\
-			if grid_pos.x ==2 and grid_pos.y==2:
-				return false
+		if grid_pos.y < grid_size.y and grid_pos.y>=0 :			
+			for i in range(0, grid_wall.size()):
+					if grid_pos.x ==grid_wall[i][0] and grid_pos.y==grid_wall[i][1]:
+						return false
 			return true if grid[grid_pos.x][grid_pos.y] == null else false
 	return false
 	
 	# update ตำแหน่งให้ตรง
 func update_child_pos(child_node):
 	# ดึงnode	
+	$Player
 	var grid_pos = world_to_map(child_node.get_position())
-	
+#	var grid_pos = $Player.get_position()
 #	ดูposition
 	
 	grid[grid_pos.x][grid_pos.y] = null
