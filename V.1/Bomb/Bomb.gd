@@ -3,8 +3,8 @@ extends Area2D
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-var collision_H
-var collision_V
+#var collision_H
+#var collision_V
 var time_boom =0
 
 func _ready():
@@ -12,21 +12,59 @@ func _ready():
 	# Initialization here
 	
 #	print(get_node("CollisionShape2D"))
-	collision_H = get_node("Collision_H")
-	collision_V = get_node("Collision_V")
+#	collision_H = get_node("Collision_H")
+#	collision_V = get_node("Collision_V")
+
 	
 	pass
 
 func _on_Timer_timeout():	
 	time_boom +=1
-	print(time_boom)
+	print("bomb position : ",get_position())
+#	print(time_boom)
 	if time_boom == 3:
-		var shape_H = RectangleShape2D.new()
-		shape_H.set_extents(Vector2(32,5))
-		var shape_V = RectangleShape2D.new()
-		shape_V.set_extents(Vector2(5,32))
-		collision_H.set_shape(shape_H)
-		collision_V.set_shape(shape_V)
+#		Horizontal up
+		var shape_H_top = RectangleShape2D.new()
+		shape_H_top.set_extents(Vector2(10,10))
+		var collision_H_top = CollisionShape2D.new()
+#		Horizontal down
+		var shape_H_down = RectangleShape2D.new()
+		shape_H_down.set_extents(Vector2(10,10))
+		var collision_H_down = CollisionShape2D.new()
+#		Verticle  LEFT
+		var shape_V_LEFT = RectangleShape2D.new()
+		shape_V_LEFT.set_extents(Vector2(10,10))
+		var collision_V_LEFT = CollisionShape2D.new()
+#		Verticle Right
+		var shape_V_RIGHT = RectangleShape2D.new()
+		shape_V_RIGHT.set_extents(Vector2(10,10))
+		var collision_V_RIGHT = CollisionShape2D.new()
+		
+		var shape = []
+		shape.append(shape_H_top)
+		shape.append(shape_H_down)
+		shape.append(shape_V_RIGHT)
+		shape.append(shape_V_LEFT)
+		print(shape)
+
+		collision_V_RIGHT.set_shape(shape_V_RIGHT)
+		collision_V_RIGHT.position.x = 32
+		
+		collision_V_LEFT.set_shape(shape_V_RIGHT)
+		collision_V_LEFT.position.x = -32
+		
+		collision_H_down.set_shape(shape_V_RIGHT)
+		collision_H_down.position.y = 32
+		
+		collision_H_top.set_shape(shape_V_RIGHT)
+		collision_H_top.position.y = -32
+		
+		
+#		add_child(collision_H_top)
+		add_child(collision_H_top)
+		add_child(collision_H_down)
+		add_child(collision_V_LEFT)
+		add_child(collision_V_RIGHT)
 	#	print(Singleton.a)
 	#	self.queue_free()
 	#destroy boom

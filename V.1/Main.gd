@@ -71,16 +71,16 @@ func _process(delta):
 
 func _input(event):
 	
-	if Input.is_key_pressed(KEY_LEFT) && !event.echo:
+	if Input.is_key_pressed(KEY_LEFT) :
 #		spritedir = "left"
 		anim_switch("walkleft")
-	elif Input.is_key_pressed(KEY_RIGHT) && !event.echo:
+	elif Input.is_key_pressed(KEY_RIGHT) :
 #		spritedir = "right"
 		anim_switch("walkright")
-	if Input.is_key_pressed(KEY_UP) && !event.echo:
+	if Input.is_key_pressed(KEY_UP) :
 #		spritedir = "up"
 		anim_switch("walkup")
-	elif Input.is_key_pressed(KEY_DOWN)&& !event.echo:
+	elif Input.is_key_pressed(KEY_DOWN):
 #		spritedir = "down"
 		anim_switch("walkdown")	
 		
