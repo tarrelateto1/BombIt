@@ -31,7 +31,8 @@ func _ready():
 	for N in get_node("rocks").get_children():
 		Singleton.list_rock.append(N)
 	grid = get_node("TileMap")
-	
+	for N in get_node("wall").get_children():
+		Singleton.list_wall.append(N)
 #	for n in Singleton.list_rock:
 #		print(n)
 	

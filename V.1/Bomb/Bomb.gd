@@ -41,11 +41,8 @@ func _on_Timer_timeout():
 		var collision_V_RIGHT = CollisionShape2D.new()
 		
 		var shape = []
-		shape.append(shape_H_top)
-		shape.append(shape_H_down)
-		shape.append(shape_V_RIGHT)
-		shape.append(shape_V_LEFT)
-		print(shape)
+		
+#		print(shape)
 
 		collision_V_RIGHT.set_shape(shape_V_RIGHT)
 		collision_V_RIGHT.position.x = 32
@@ -65,8 +62,8 @@ func _on_Timer_timeout():
 		add_child(collision_H_down)
 		add_child(collision_V_LEFT)
 		add_child(collision_V_RIGHT)
-	#	print(Singleton.a)
-	#	self.queue_free()
+		
+		
 	#destroy boom
 	elif time_boom >3:
 		queue_free()
@@ -77,8 +74,24 @@ func _on_Timer_timeout():
 func _on_Bomb_body_entered(body):
 	for L in Singleton.list_rock:
 		if L == body:
+			print("โดนหิน")
+			print(L)
 			L.queue_free()
+	
+	for L in Singleton.list_wall:
+		if L == body:
+			print("โดนกำแพง")
+			print(L)
+#			L.queue_free()
 #	print(Singleton.a)
 #	body.queue_free()
 #	print(body)
+	pass # replace with function body
+
+
+
+
+func _on_Bomb_body_shape_entered(body_id, body, body_shape, area_shape):
+	print(body)
+	print("area_shape : ",area_shape)
 	pass # replace with function body
