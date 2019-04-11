@@ -201,4 +201,17 @@ func _on_Bomb_body_shape_entered(body_id, body, body_shape, area_shape):
 				find_wall_left = false
 				print("โดนกำแพงซ้าย ที่",area_shape ,"กับ ",k)
 				print(L)	
-	pass # replace with function body
+				
+#	check_wall(collect_top_area,find_wall_top,body,area_shape)
+#	check_wall(collect_right_area,find_wall_right,body,area_shape)
+#	check_wall(collect_down_area,find_wall_down,body,area_shape)
+#	check_wall(collect_left_area,find_wall_left,body,area_shape)
+
+func check_wall(collect,find_wall,body,area_shape):
+	for k in collect:
+		for L in Singleton.list_wall:
+			if L == body&& k ==area_shape:
+				find_wall = false
+				print("โดนกำแพง ที่",area_shape ,"กับ ",k)
+				print(L)	
+	
