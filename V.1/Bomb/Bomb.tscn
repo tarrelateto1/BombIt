@@ -3,7 +3,7 @@
 [ext_resource path="res://Bomb/Bomb.gd" type="Script" id=1]
 [ext_resource path="res://Bomb/bomb_by_drcappella-dc3peuv.png" type="Texture" id=2]
 
-[node name="Bomb" type="Area2D" index="0"]
+[node name="Bomb" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -24,7 +24,7 @@ _sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Z Index" ]
 [node name="Timer" type="Timer" parent="." index="1"]
 
 process_mode = 1
-wait_time = 1.0
+wait_time = 0.1
 one_shot = false
 autostart = true
 
