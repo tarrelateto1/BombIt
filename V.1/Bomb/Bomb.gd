@@ -20,6 +20,8 @@ var count_area = 0
 
 var collect_left_area = []
 var collect_right_area=[]
+var collect_top_area = []
+var collect_down_area = []
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
@@ -84,6 +86,7 @@ func _on_Timer_timeout():
 			collision_H_TOP.set_shape(shape_H_TOP)
 			collision_H_TOP.position.y = -32*(count_bomb_top+1)
 #			shape.append(collision_V_RIGHT)
+			collect_top_area.append(count_area)
 #			if(colision_wall):	
 			add_child(collision_H_TOP)
 			count_area+=1	
@@ -100,7 +103,7 @@ func _on_Timer_timeout():
 #			shape.append(collision_V_RIGHT)
 #			if(colision_wall):	
 			collect_right_area.append(count_area)
-			print(collect_right_area)
+#			print(collect_right_area)
 			add_child(collision_V_RIGHT)
 			count_area+=1	
 			count_bomb_right+=1
@@ -115,7 +118,7 @@ func _on_Timer_timeout():
 			collision_H_DOWN.position.y = 32*(count_bomb_down+1)
 #			shape.append(collision_V_RIGHT)
 #			if(colision_wall):	
-
+			collect_down_area.append(count_area)
 			add_child(collision_H_DOWN)
 			count_area+=1	
 			count_bomb_down+=1
@@ -169,22 +172,24 @@ func _on_Bomb_body_shape_entered(body_id, body, body_shape, area_shape):
 #	print(body)
 #	print("area_shape : ",area_shape)
 #	print(shape)
-	if area_shape == 0 :
+#	if area_shape == 0 :
+	for k in collect_top_area:
 		for L in Singleton.list_wall:
-			if L == body:
+			if L == body&& k == area_shape:
 				find_wall_top = false
 				print("โดนกำแพง")
 				print(L)	
-	if area_shape == 1 :
-#	for k in collect_left_area:
+#	if area_shape == 1 :
+	for k in collect_right_area:
 		for L in Singleton.list_wall:
-			if L == body:
+			if L == body && k == area_shape:
 				find_wall_right = false
 				print("โดนกำแพง")
 				print(L)	
-	if area_shape == 2 :
+#	if area_shape == 2 :
+	for k in collect_down_area:
 		for L in Singleton.list_wall:
-			if L == body:
+			if L == body && k == area_shape:
 				find_wall_down = false
 				print("โดนกำแพง")
 				print(L)	
