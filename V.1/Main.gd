@@ -60,7 +60,7 @@ func _process(delta):
 	var ds = v * delta
 	if ds != Vector2(0,0):
 		$Player.move_and_collide(v*delta)
-		
+		print($Player.get_position())
 #		anim_switch("walk")
 #	print("x= ",$Player.get_position().x ,"  y=",$Player.get_position().y)
 #	print($Player.get_position().x)
