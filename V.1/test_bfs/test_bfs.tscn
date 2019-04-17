@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://test_bfs/test_bfs.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Node2D" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+
+mode = 0
+tile_set = null
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+_sections_unfolded = [ "Cell", "Transform", "Z Index" ]
+
+[node name="KinematicBody2sD" type="KinematicBody2D" parent="." index="1"]
+
+position = Vector2( 320, 96 )
+scale = Vector2( 0.497384, 0.5 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2sD" index="0"]
+
+scale = Vector2( 2.46798, 2.46154 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+
