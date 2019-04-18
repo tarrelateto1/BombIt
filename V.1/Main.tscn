@@ -1,13 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Tilemap/tile.tres" type="TileSet" id=2]
 [ext_resource path="res://TileMap1.gd" type="Script" id=3]
 [ext_resource path="res://Rock/Rock.tscn" type="PackedScene" id=4]
 [ext_resource path="res://wall/wallD.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Bot(AI)/Bot.tscn" type="PackedScene" id=6]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -102,19 +101,5 @@ scale = Vector2( 0.500028, 0.515274 )
 [node name="StaticBody2D2" parent="wall" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 205.516, 112 )
-
-[node name="Bots" type="Node2D" parent="." index="4"]
-
-[node name="Bot" parent="Bots" index="0" instance=ExtResource( 6 )]
-
-position = Vector2( 508.273, 89.0814 )
-
-[node name="Bot2" parent="Bots" index="1" instance=ExtResource( 6 )]
-
-position = Vector2( 501.413, 292.865 )
-
-[node name="Bot3" parent="Bots" index="2" instance=ExtResource( 6 )]
-
-position = Vector2( 139.862, 296.294 )
 
 
