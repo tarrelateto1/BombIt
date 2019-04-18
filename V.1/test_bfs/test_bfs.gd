@@ -23,8 +23,8 @@ func _ready():
 #	print(frontier[1])
 #	print(Vector2(10,10))
 	
-	var a =find_neighbors(start)
-#	test(start)
+#	var a =find_neighbors(start)
+	test(start)
 	pass
 
 func _process(delta):
@@ -34,26 +34,31 @@ func _process(delta):
 #	test(start)
 	pass
 func test(start):
+	print("test")
 	var current
 	var frontier = []
 	var currentleft = 0 
 	frontier.append(start)
 	var visits = [] 
 	visits.append(null)
-	while visits.size() >0 && visits.size()<3 :
+	while visits.size() >0 && visits.size()<10:
+		print("new pop")
 		current = frontier.pop_front()
 		print("current : ",current)
+		print("frontier : ",frontier)
+		print("visits : ",visits)
 #		currentleft +=1
 		for next in find_neighbors(current):
-			print("next : ",next)
+			
+#			print("next : ",next)
 			for visit in visits :
 				print("all visits : " ,visit)
 				print("visit : ",visit)
 				if next != visit:
 					frontier.append(next)
 #					visits.append(current)
-					print("frontier : ",frontier)
-					print("visits : ",visits)
+#					print("frontier : ",frontier)
+#					print("visits : ",visits)
 #				print(next)
 			visits.append(current)
 
@@ -68,11 +73,11 @@ func bfs():
 	pass
 	
 func find_neighbors(start):
-	print("test neighbors")
-	print("top  :",start.position+Vector2(0,-32))
-	print("left :",start.position+Vector2(-32,0))
-	print("bot  :",start.position+Vector2(0,32))
-	print("right  :",start.position+Vector2(32,0))
+#	print("test neighbors")
+#	print("top  :",start.position+Vector2(0,-32))
+#	print("left :",start.position+Vector2(-32,0))
+#	print("bot  :",start.position+Vector2(0,32))
+#	print("right  :",start.position+Vector2(32,0))
 	var frontier =[]
 # Ptop
 	var Ptop =KinematicBody2D.new() 
@@ -83,7 +88,7 @@ func find_neighbors(start):
 	collision_H_TOP.set_shape(shape_H_TOP)
 	Ptop.add_child(collision_H_TOP)
 	add_child(Ptop)
-	print("Ptop ", Ptop.get_position())
+#	print("Ptop ", Ptop.get_position())
 	
 	#PLEFT
 	var Pleft = KinematicBody2D.new() 
@@ -117,7 +122,7 @@ func find_neighbors(start):
 	frontier.append(Pleft)
 	frontier.append(Pbot)
 	frontier.append(Pright)
-	get_tree().root.print_tree_pretty()
+#	get_tree().root.print_tree_pretty()
 	print(frontier)
 	
 	return frontier
