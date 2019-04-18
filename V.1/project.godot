@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="bomberman"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://test_bfs/test_bfs.tscn"
 config/icon="res://icon.png"
 
 [autoload]
