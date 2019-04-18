@@ -7,12 +7,12 @@ extends Node2D
 
 const speed = 200
 var spritedir = "down"
-var Loadplayer = preload("res://Player/Player.tscn")
+#var Loadplayer = preload("res://Player/Player.tscn")
 var Bomb = preload("res://Bomb/Bomb.tscn")
 var list_bomb = []
 var list_rock = []
 
-var player = Loadplayer.instance()
+onready var player = get_node("Player")
 
 var grid
 
@@ -20,12 +20,13 @@ func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	
-	player.position = Vector2(170,70)
+#	player.position = Vector2(170,70)
 #	print(player.get_node("Sprite"))
-	add_child(player)
-	get_tree().root.print_tree_pretty()
+#	add_child(player)
+#	get_tree().root.print_tree_pretty()
 #	player.print_tree_pretty()
-	
+	Singleton.player.append(player)
+	Singleton.player.append(player)
 	var Rocks = get_node("rocks")
 	
 	for N in get_node("rocks").get_children():
@@ -60,7 +61,7 @@ func _process(delta):
 	var ds = v * delta
 	if ds != Vector2(0,0):
 		$Player.move_and_collide(v*delta)
-		print($Player.get_position())
+#		print($Player.get_position())
 #		anim_switch("walk")
 #	print("x= ",$Player.get_position().x ,"  y=",$Player.get_position().y)
 #	print($Player.get_position().x)

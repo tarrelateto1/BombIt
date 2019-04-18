@@ -3,6 +3,9 @@ extends Node
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
+var node = preload("res://test_bfs/node.gd")
+
+var root = null
 
 func _ready():
 	# Called when the node is added to the scene for the first time.

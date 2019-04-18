@@ -40,8 +40,9 @@ func test(start):
 	var currentleft = 0 
 	frontier.append(start)
 	var visits = [] 
-	visits.append(null)
-	while visits.size() >0 && visits.size()<10:
+	
+	isits.append(start)
+	while visits.size() >=0 && visits.size()<10:
 		print("new pop")
 		current = frontier.pop_front()
 		print("current : ",current)
@@ -52,9 +53,13 @@ func test(start):
 			
 #			print("next : ",next)
 			for visit in visits :
+				
 				print("all visits : " ,visit)
-				print("visit : ",visit)
-				if next != visit:
+				print("visit : ",visit.get_position())
+				print("next  : " ,next.get_position())
+				if next.get_position() != visit.get_position():
+#					print("next: ",next.get_position(),"and visit : ",visit.get_position())
+					add_child(next)
 					frontier.append(next)
 #					visits.append(current)
 #					print("frontier : ",frontier)
@@ -87,7 +92,7 @@ func find_neighbors(start):
 	var collision_H_TOP = CollisionShape2D.new()
 	collision_H_TOP.set_shape(shape_H_TOP)
 	Ptop.add_child(collision_H_TOP)
-	add_child(Ptop)
+#	add_child(Ptop)
 #	print("Ptop ", Ptop.get_position())
 	
 	#PLEFT
@@ -98,7 +103,7 @@ func find_neighbors(start):
 	var collision_V_LEFT = CollisionShape2D.new()
 	collision_V_LEFT.set_shape(shape_V_LEFT)
 	Pleft.add_child(collision_V_LEFT)
-	add_child(Pleft)
+#	add_child(Pleft)
 #PBOT	
 	var Pbot = KinematicBody2D.new() 
 	Pbot.position = start.position+Vector2(0,32)
@@ -107,7 +112,7 @@ func find_neighbors(start):
 	var collision_H_BOT = CollisionShape2D.new()
 	collision_H_BOT.set_shape(shape_H_BOT)
 	Pbot.add_child(collision_H_BOT)
-	add_child(Pbot)
+#	add_child(Pbot)
 	#PRIGHT
 	var Pright = KinematicBody2D.new() 
 	Pright.position = start.position+Vector2(32,0)
@@ -116,7 +121,7 @@ func find_neighbors(start):
 	var collision_V_Right = CollisionShape2D.new()
 	collision_V_Right.set_shape(shape_V_Right)
 	Pright.add_child(collision_V_Right)
-	add_child(Pright)
+#	add_child(Pright)
 	
 	frontier.append(Ptop)
 	frontier.append(Pleft)
