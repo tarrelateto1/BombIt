@@ -5,7 +5,7 @@
 extends Node2D
 
 
-const speed = 200
+var speed = 200
 var spritedir = "down"
 #var Loadplayer = preload("res://Player/Player.tscn")
 var Bomb = preload("res://Bomb/Bomb.tscn")
@@ -26,7 +26,7 @@ func _ready():
 #	get_tree().root.print_tree_pretty()
 #	player.print_tree_pretty()
 	Singleton.player.append(player)
-	Singleton.player.append(player)
+#	Singleton.player.append(player)
 	var Rocks = get_node("rocks")
 	
 	for N in get_node("rocks").get_children():
@@ -34,13 +34,15 @@ func _ready():
 	grid = get_node("TileMap")
 	for N in get_node("wall").get_children():
 		Singleton.list_wall.append(N)
+	
 #	for n in Singleton.list_rock:
 #		print(n)
 	
-	
+#	speed = Singleton.speed
 	
 
 func _process(delta):
+
 #	$Control/Label.text = "Player 1 = position " + String($Player.get_position().x) + " " + String($Player.get_position().y) 
 	var v = Vector2()
 	if Input.is_key_pressed(KEY_LEFT):
@@ -49,7 +51,7 @@ func _process(delta):
 	elif Input.is_key_pressed(KEY_RIGHT):
 		v.x = speed
 		spritedir = "right"
-	if Input.is_key_pressed(KEY_UP):
+	elif Input.is_key_pressed(KEY_UP):
 		v.y = -speed
 		spritedir = "up"
 	elif Input.is_key_pressed(KEY_DOWN):
@@ -60,7 +62,9 @@ func _process(delta):
 	
 	var ds = v * delta
 	if ds != Vector2(0,0):
-		$Player.move_and_collide(v*delta)
+#		if(Singleton.move_c):
+			$Player.move_and_collide(v*delta)
+		
 #		print($Player.get_position())
 #		anim_switch("walk")
 #	print("x= ",$Player.get_position().x ,"  y=",$Player.get_position().y)

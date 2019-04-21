@@ -147,12 +147,15 @@ func _on_Timer_timeout():
 
 
 func _on_Bomb_body_entered(body):
-	
+	var idx = 0
 	for L in Singleton.list_rock:
+		
 		if L == body:
 			print("โดนหิน")
 			print(L)
+			Singleton.list_rock.remove(idx)
 			L.queue_free()
+		idx +=1
 	
 #	for L in Singleton.list_wall:
 #		if L == body:
