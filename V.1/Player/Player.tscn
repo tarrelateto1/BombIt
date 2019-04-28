@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player/charwalk.png" type="Texture" id=1]
 
@@ -78,17 +78,13 @@ tracks/0/keys = {
 "values": [ 2, 6, 10, 14 ]
 }
 
-[sub_resource type="RectangleShape2D" id=5]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
 [node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
+_sections_unfolded = [ "collision" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -111,10 +107,9 @@ anims/walkright = SubResource( 3 )
 anims/walkup = SubResource( 4 )
 blend_times = [  ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
 
-position = Vector2( 0.738862, 2.79671 )
-scale = Vector2( 1.51035, 1.62223 )
-shape = SubResource( 5 )
+build_mode = 0
+polygon = PoolVector2Array( 10.8895, 11.0535, 6.25788, 12.34, 5.65749, 17.7436, 3.94209, 18.9443, -0.603729, 19.2016, -2.14759, 17.3147, -3.09106, 12.7689, -2.06182, 11.0535, -9.35228, 9.93847, -12.7831, 4.96381, -12.9546, -2.24088, -11.7538, -7.90171, -8.06573, -11.2467, -4.46339, -12.6191, 1.88361, -12.7048, 4.4567, -11.9329, 7.88751, -13.0479, 10.7179, -12.0187, 14.063, -8.75941, 13.9772, -6.61516, 15.0064, -3.95629, 13.2053, -0.95433, 11.6614, 0.76107, 12.3476, 3.50571, 11.3183, 9.76693, 11.3183, 9.93847 )
 
 

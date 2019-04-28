@@ -17,6 +17,7 @@ onready var player = get_node("Player")
 var grid
 
 func _ready():
+	Singleton.list_bomb.append(self)
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	
@@ -31,6 +32,8 @@ func _ready():
 	
 	for N in get_node("rocks").get_children():
 		Singleton.list_rock.append(N)
+#	Singleton.list_rock[0].queue_free()
+	print(Singleton.list_rock)
 	grid = get_node("TileMap")
 	for N in get_node("wall").get_children():
 		Singleton.list_wall.append(N)
@@ -45,16 +48,21 @@ func _process(delta):
 
 #	$Control/Label.text = "Player 1 = position " + String($Player.get_position().x) + " " + String($Player.get_position().y) 
 	var v = Vector2()
-	if Input.is_key_pressed(KEY_LEFT):
+	
+#	if Input.is_key_pressed(KEY_LEFT):
+	if Input.is_action_pressed("ui_left"):
 		v.x = -speed
 		spritedir = "left"
-	elif Input.is_key_pressed(KEY_RIGHT):
+#	elif Input.is_key_pressed(KEY_RIGHT):
+	elif Input.is_action_pressed("ui_right"):
 		v.x = speed
 		spritedir = "right"
-	elif Input.is_key_pressed(KEY_UP):
+#	elif Input.is_key_pressed(KEY_UP):
+	elif Input.is_action_pressed("ui_up"):
 		v.y = -speed
 		spritedir = "up"
-	elif Input.is_key_pressed(KEY_DOWN):
+#	elif Input.is_key_pressed(KEY_DOWN):
+	elif Input.is_action_pressed("ui_down"):
 		v.y = speed
 		spritedir = "down"
 		
@@ -64,6 +72,33 @@ func _process(delta):
 	if ds != Vector2(0,0):
 #		if(Singleton.move_c):
 			$Player.move_and_collide(v*delta)
+			
+			
+	var v1 = Vector2()
+	
+	if Input.is_key_pressed(KEY_LEFT):
+#	if Input.is_action_pressed("ui_left"):
+		v1.x = -speed
+		spritedir = "left"
+	elif Input.is_key_pressed(KEY_RIGHT):
+#	elif Input.is_action_pressed("ui_right"):
+		v1.x = speed
+		spritedir = "right"
+	elif Input.is_key_pressed(KEY_UP):
+#	elif Input.is_action_pressed("ui_up"):
+		v1.y = -speed
+		spritedir = "up"
+	elif Input.is_key_pressed(KEY_DOWN):
+#	elif Input.is_action_pressed("ui_down"):
+		v1.y = speed
+		spritedir = "down"
+		
+		
+	
+	var ds1 = v1 * delta
+	if ds1 != Vector2(0,0):
+#		if(Singleton.move_c):
+			$Player2.move_and_collide(v1*delta)
 		
 #		print($Player.get_position())
 #		anim_switch("walk")
@@ -77,20 +112,26 @@ func _process(delta):
 
 func _input(event):
 	
-	if Input.is_key_pressed(KEY_LEFT) :
+#	if Input.is_key_pressed(KEY_LEFT) :
+	if Input.is_action_pressed("ui_left"):
 #		spritedir = "left"
 		anim_switch("walkleft")
-	elif Input.is_key_pressed(KEY_RIGHT) :
+#	elif Input.is_key_pressed(KEY_RIGHT) :
+	elif Input.is_action_pressed("ui_right"):
 #		spritedir = "right"
 		anim_switch("walkright")
-	if Input.is_key_pressed(KEY_UP) :
+#	if Input.is_key_pressed(KEY_UP) :
+	elif Input.is_action_pressed("ui_up"):
 #		spritedir = "up"
 		anim_switch("walkup")
-	elif Input.is_key_pressed(KEY_DOWN):
+#	elif Input.is_key_pressed(KEY_DOWN):
+	elif Input.is_action_pressed("ui_down"):
 #		spritedir = "down"
 		anim_switch("walkdown")	
 		
-	if Input.is_key_pressed(KEY_SPACE):
+#	if Input.is_key_pressed(KEY_SPACE):
+	if Input.is_action_pressed("Bomb"):
+		
 		var bomb = Bomb.instance()
 		
 		
@@ -101,7 +142,7 @@ func _input(event):
 		bomb.position = Vector2((g.x*$TileMap.cell_size.x)+$TileMap.cell_size.x/2,(g.y*$TileMap.cell_size.y)+$TileMap.cell_size.y/2)
 #		bomb.position = Vector2($Player.get_position().x,$Player.get_position().y)
 		add_child(bomb)
-		print(bomb.get_position())
+#		print(bomb.get_position())
 #		var g = grid.is_cell_vacant(bomb.get_position())
 		
 #		var grid
@@ -115,6 +156,39 @@ func _input(event):
 #		print(bomb.position)
 #		list_bomb.append(bomb)
 #		get_tree().root.print_tree_pretty()
+
+
+#####player2
+	if Input.is_key_pressed(KEY_LEFT) :
+#	if Input.is_action_pressed("ui_left"):
+#		spritedir = "left"
+		anim_switch("walkleft")
+	elif Input.is_key_pressed(KEY_RIGHT) :
+#	elif Input.is_action_pressed("ui_right"):
+#		spritedir = "right"
+		anim_switch("walkright")
+	if Input.is_key_pressed(KEY_UP) :
+#	elif Input.is_action_pressed("ui_up"):
+#		spritedir = "up"
+		anim_switch("walkup")
+	elif Input.is_key_pressed(KEY_DOWN):
+#	elif Input.is_action_pressed("ui_down"):
+#		spritedir = "down"
+		anim_switch("walkdown")	
+		
+	if Input.is_key_pressed(KEY_SPACE):
+#	if Input.is_action_pressed("Bomb"):
+		
+		var bomb1 = Bomb.instance()
+		
+		
+		bomb1.scale = Vector2(1,1)
+		bomb1.z_index = -1
+		var g1 = grid.is_cell_vacant($Player2.get_position())
+#		bomb.position = Vector2(170,70)
+		bomb1.position = Vector2((g1.x*$TileMap.cell_size.x)+$TileMap.cell_size.x/2,(g1.y*$TileMap.cell_size.y)+$TileMap.cell_size.y/2)
+#		bomb.position = Vector2($Player.get_position().x,$Player.get_position().y)
+		add_child(bomb1)
 		
 	pass
 #

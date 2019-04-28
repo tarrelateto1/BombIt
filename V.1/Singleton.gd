@@ -8,6 +8,7 @@ var list_rock = []
 var list_wall = []
 var player = []
 var speed = 200
+var list_bomb = []
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here

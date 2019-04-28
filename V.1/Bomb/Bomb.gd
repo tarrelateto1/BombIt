@@ -22,7 +22,10 @@ var collect_left_area = []
 var collect_right_area=[]
 var collect_top_area = []
 var collect_down_area = []
+var destory = []
+var idx = 0
 func _ready():
+	Singleton.list_bomb.append(self)
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	
@@ -141,21 +144,53 @@ func _on_Timer_timeout():
 		
 	#destroy boom
 	elif time_boom >3:
+#		var idx = 0
+#		print(destory)
+##		queue_free()
+#		for D in destory:
+###		for L in Singleton.list_rock:
+###
+###			for D in destory:
+#			for L in Singleton.list_rock:
+##
+###				print(D,"and",L)
+####				print("rocks",Singleton.list_rock)
+####				print("destory",destory)
+###
+#				if L == D:
+#					print(D,"and",L)
+###					print("โดนหิน")
+###					print(L)
+#					Singleton.list_rock.remove(idx)
+#					L.queue_free()
+####					if L != null:
+###					Singleton.list_rock.remove(idx)
+###					L.queue_free()
+####						Singleton.list_rock.remove(idx)
+#			idx +=1
+#		print(Singleton.list_rock)
+		print(Singleton.list_bomb)
 		queue_free()
+		
 	
 	 # replace with function body
 
 
 func _on_Bomb_body_entered(body):
 	var idx = 0
+	destory.append(body)
+#	print("เจอ ",destory)
+	
 	for L in Singleton.list_rock:
-		
+	
 		if L == body:
 			print("โดนหิน")
 			print(L)
 			Singleton.list_rock.remove(idx)
 			L.queue_free()
+			print(Singleton.list_rock)
 		idx +=1
+#	print(Singleton.list_rock)	
 	
 #	for L in Singleton.list_wall:
 #		if L == body:

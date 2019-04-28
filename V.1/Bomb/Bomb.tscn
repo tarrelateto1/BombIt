@@ -3,7 +3,7 @@
 [ext_resource path="res://Bomb/Bomb.gd" type="Script" id=1]
 [ext_resource path="res://Bomb/bomb_by_drcappella-dc3peuv.png" type="Texture" id=2]
 
-[node name="Bomb" type="Area2D"]
+[node name="Bomb" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
