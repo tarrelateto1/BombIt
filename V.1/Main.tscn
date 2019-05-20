@@ -9,7 +9,7 @@
 [ext_resource path="res://Bot(AI)/Bots.gd" type="Script" id=7]
 [ext_resource path="res://Bot(AI)/bot.tscn" type="PackedScene" id=8]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -73,8 +73,6 @@ script = ExtResource( 3 )
 _sections_unfolded = [ "Cell" ]
 
 [node name="rocks" type="Node2D" parent="." index="2"]
-
-editor/display_folded = true
 
 [node name="rock" parent="rocks" index="0" instance=ExtResource( 4 )]
 
@@ -198,84 +196,72 @@ scale = Vector2( 1.16773, 1.16399 )
 position = Vector2( 432.096, 144.1 )
 scale = Vector2( 1.16773, 1.16399 )
 
-[node name="rock21" parent="rocks" index="25" instance=ExtResource( 4 )]
-
-position = Vector2( 464.096, 304.1 )
-scale = Vector2( 1.16773, 1.16399 )
-
-[node name="rock31" parent="rocks" index="26" instance=ExtResource( 4 )]
+[node name="rock31" parent="rocks" index="25" instance=ExtResource( 4 )]
 
 position = Vector2( 496.096, 240.1 )
 scale = Vector2( 1.16773, 1.16399 )
 
-[node name="rock33" parent="rocks" index="27" instance=ExtResource( 4 )]
-
-position = Vector2( 432.096, 304.1 )
-scale = Vector2( 1.16773, 1.16399 )
-
-[node name="rock34" parent="rocks" index="28" instance=ExtResource( 4 )]
+[node name="rock34" parent="rocks" index="26" instance=ExtResource( 4 )]
 
 position = Vector2( 368.096, 304.1 )
 scale = Vector2( 1.16773, 1.16399 )
 
-[node name="rock35" parent="rocks" index="29" instance=ExtResource( 4 )]
+[node name="rock35" parent="rocks" index="27" instance=ExtResource( 4 )]
 
 position = Vector2( 304.096, 272.1 )
 scale = Vector2( 1.16773, 1.16399 )
 
-[node name="rock36" parent="rocks" index="30" instance=ExtResource( 4 )]
+[node name="rock36" parent="rocks" index="28" instance=ExtResource( 4 )]
 
 position = Vector2( 336.096, 272.1 )
 scale = Vector2( 1.16773, 1.16399 )
 
-[node name="rock37" parent="rocks" index="31" instance=ExtResource( 4 )]
+[node name="rock37" parent="rocks" index="29" instance=ExtResource( 4 )]
 
 position = Vector2( 304.096, 112.1 )
 scale = Vector2( 1.16773, 1.16399 )
 
-[node name="rock22" parent="rocks" index="32" instance=ExtResource( 4 )]
+[node name="rock22" parent="rocks" index="30" instance=ExtResource( 4 )]
 
 position = Vector2( 336.096, 144.1 )
 scale = Vector2( 1.16773, 1.16399 )
 
-[node name="rock23" parent="rocks" index="33" instance=ExtResource( 4 )]
+[node name="rock23" parent="rocks" index="31" instance=ExtResource( 4 )]
 
 position = Vector2( 112.096, 208.1 )
 scale = Vector2( 1.16773, 1.16399 )
 
-[node name="rock24" parent="rocks" index="34" instance=ExtResource( 4 )]
+[node name="rock24" parent="rocks" index="32" instance=ExtResource( 4 )]
 
 position = Vector2( 112.096, 240.1 )
 scale = Vector2( 1.16773, 1.16399 )
 
-[node name="rock25" parent="rocks" index="35" instance=ExtResource( 4 )]
+[node name="rock25" parent="rocks" index="33" instance=ExtResource( 4 )]
 
 position = Vector2( 144.096, 144.1 )
 scale = Vector2( 1.16773, 1.16399 )
 
-[node name="rock26" parent="rocks" index="36" instance=ExtResource( 4 )]
+[node name="rock26" parent="rocks" index="34" instance=ExtResource( 4 )]
 
 position = Vector2( 176.096, 112.1 )
 scale = Vector2( 1.16773, 1.16399 )
 
-[node name="rock27" parent="rocks" index="37" instance=ExtResource( 4 )]
+[node name="rock27" parent="rocks" index="35" instance=ExtResource( 4 )]
 
 position = Vector2( 240.096, 112.1 )
 scale = Vector2( 1.16773, 1.16399 )
 
-[node name="rock28" parent="rocks" index="38" instance=ExtResource( 4 )]
+[node name="rock28" parent="rocks" index="36" instance=ExtResource( 4 )]
 
 position = Vector2( 240.096, 144.1 )
 scale = Vector2( 1.16773, 1.16399 )
 
-[node name="rock29" parent="rocks" index="39" instance=ExtResource( 4 )]
+[node name="rock29" parent="rocks" index="37" instance=ExtResource( 4 )]
 
 position = Vector2( 272.096, 208.1 )
 scale = Vector2( 1.16773, 1.16399 )
 
 [node name="wall" type="Node2D" parent="." index="3"]
-
-editor/display_folded = true
 
 [node name="StaticBody2D" parent="wall" index="0" instance=ExtResource( 5 )]
 
@@ -364,7 +350,8 @@ position = Vector2( 301.516, 304 )
 
 [node name="StaticBody2D21" parent="wall" index="21" instance=ExtResource( 5 )]
 
-position = Vector2( 461.516, 272 )
+position = Vector2( 464.163, 271.901 )
+scale = Vector2( 1.01447, 1.00717 )
 
 [node name="StaticBody2D22" parent="wall" index="22" instance=ExtResource( 5 )]
 

@@ -100,7 +100,7 @@ func _on_Timer_timeout():
 			add_child(img)
 #			add_child(img)
 #			if(colision_wall):	
-			print(collision_H_TOP)
+#			print(collision_H_TOP)
 			add_child(collision_H_TOP)
 			count_area+=1	
 			count_bomb_top+=1
@@ -117,6 +117,11 @@ func _on_Timer_timeout():
 #			if(colision_wall):	
 			collect_right_area.append(count_area)
 #			print(collect_right_area)
+			var img = Sprite.new()
+			img.texture = load("res://Bomb/fire.jpg")
+			img.position.x = 32*(count_bomb_right+1)
+			img.set_scale(Vector2(0.035556,0.033333))
+			add_child(img)
 			add_child(collision_V_RIGHT)
 			count_area+=1	
 			count_bomb_right+=1
@@ -132,6 +137,13 @@ func _on_Timer_timeout():
 #			shape.append(collision_V_RIGHT)
 #			if(colision_wall):	
 			collect_down_area.append(count_area)
+			
+			var img = Sprite.new()
+			img.texture = load("res://Bomb/fire.jpg")
+			img.position.y = 32*(count_bomb_down+1)
+			img.set_scale(Vector2(0.035556,0.033333))
+			add_child(img)
+			
 			add_child(collision_H_DOWN)
 			count_area+=1	
 			count_bomb_down+=1
@@ -148,6 +160,12 @@ func _on_Timer_timeout():
 #			if(colision_wall):	
 			collect_left_area.append(count_area)
 			print("collect in left ",collect_left_area)
+			var img = Sprite.new()
+			img.texture = load("res://Bomb/fire.jpg")
+			img.position.x = -32*(count_bomb_left+1)
+			img.set_scale(Vector2(0.035556,0.033333))
+			add_child(img)
+			
 			add_child(collision_V_LEFT)
 			count_area+=1	
 			count_bomb_left+=1
