@@ -19,7 +19,7 @@ func _process(delta):
 	var Move = Vector2()
 	var body = Singleton.player[0]
 	
-	print(Singleton.list_bomb)
+#	print(Singleton.list_bomb)
 #	print(body)
 #	var body = 	get_node("body").get_overlapping_bodies()
 #	print(body)

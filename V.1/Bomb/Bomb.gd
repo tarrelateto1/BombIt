@@ -24,10 +24,12 @@ var collect_top_area = []
 var collect_down_area = []
 var destory = []
 var idx = 0
+#var img = preload("res://Bomb/fire.tscn")
 func _ready():
 	Singleton.list_bomb.append(self)
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
+	
 	
 #	print(get_node("CollisionShape2D"))
 #	collision_H = get_node("Collision_H")
@@ -90,14 +92,22 @@ func _on_Timer_timeout():
 			collision_H_TOP.position.y = -32*(count_bomb_top+1)
 #			shape.append(collision_V_RIGHT)
 			collect_top_area.append(count_area)
+#			img.position.y = -32*(count_bomb_top+1)
+			var img = Sprite.new()
+			img.texture = load("res://Bomb/fire.jpg")
+			img.position.y = -32*(count_bomb_top+1)
+			img.set_scale(Vector2(0.035556,0.033333))
+			add_child(img)
+#			add_child(img)
 #			if(colision_wall):	
+			print(collision_H_TOP)
 			add_child(collision_H_TOP)
 			count_area+=1	
 			count_bomb_top+=1
 #			shape[0].position.x = 32*2
 		# RIGHT
 		if count_bomb_right < max_bomb && find_wall_right:
-			print(count_bomb_right)
+#			print(count_bomb_right)
 			var shape_V_RIGHT = RectangleShape2D.new()
 			shape_V_RIGHT.set_extents(Vector2(10,10))
 			var collision_V_RIGHT = CollisionShape2D.new()
@@ -144,6 +154,7 @@ func _on_Timer_timeout():
 		
 	#destroy boom
 	elif time_boom >3:
+		
 #		var idx = 0
 #		print(destory)
 ##		queue_free()
@@ -169,7 +180,8 @@ func _on_Timer_timeout():
 ####						Singleton.list_rock.remove(idx)
 #			idx +=1
 #		print(Singleton.list_rock)
-		print(Singleton.list_bomb)
+#		print(Singleton.list_bomb)
+		get_tree().root.print_tree_pretty()
 		queue_free()
 		
 	

@@ -9,7 +9,7 @@
 [ext_resource path="res://Bot(AI)/Bots.gd" type="Script" id=7]
 [ext_resource path="res://Bot(AI)/bot.tscn" type="PackedScene" id=8]
 
-[node name="Main" type="Node2D" index="0"]
+[node name="Main" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -73,6 +73,8 @@ script = ExtResource( 3 )
 _sections_unfolded = [ "Cell" ]
 
 [node name="rocks" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
 
 [node name="rock" parent="rocks" index="0" instance=ExtResource( 4 )]
 
@@ -272,6 +274,8 @@ position = Vector2( 272.096, 208.1 )
 scale = Vector2( 1.16773, 1.16399 )
 
 [node name="wall" type="Node2D" parent="." index="3"]
+
+editor/display_folded = true
 
 [node name="StaticBody2D" parent="wall" index="0" instance=ExtResource( 5 )]
 

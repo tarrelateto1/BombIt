@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Bomb/fire.jpg" type="Texture" id=1]
+
+[node name="fire" type="Sprite"]
+
+scale = Vector2( 0.0355556, 0.0333333 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Animation", "Region", "Transform" ]
+
+

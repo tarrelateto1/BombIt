@@ -28,15 +28,15 @@ func _ready():
 #	player.print_tree_pretty()
 	Singleton.player.append(player)
 #	Singleton.player.append(player)
-	var Rocks = get_node("rocks")
+#	var Rocks = get_node("rocks")
 	
-	for N in get_node("rocks").get_children():
-		Singleton.list_rock.append(N)
+#	for N in get_node("rocks").get_children():
+#		Singleton.list_rock.append(N)
 #	Singleton.list_rock[0].queue_free()
-	print(Singleton.list_rock)
+#	print(Singleton.list_rock)
 	grid = get_node("TileMap")
-	for N in get_node("wall").get_children():
-		Singleton.list_wall.append(N)
+#	for N in get_node("wall").get_children():
+#		Singleton.list_wall.append(N)
 	
 #	for n in Singleton.list_rock:
 #		print(n)
