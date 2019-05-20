@@ -5,7 +5,7 @@
 extends Node2D
 
 
-var speed = 200
+
 var spritedir = "down"
 #var Loadplayer = preload("res://Player/Player.tscn")
 var Bomb = preload("res://Bomb/Bomb.tscn")
@@ -20,7 +20,8 @@ func _ready():
 	Singleton.list_bomb.append(self)
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	
+	Singleton.player1 = $Player
+	Singleton.player2 = $Player2
 #	player.position = Vector2(170,70)
 #	print(player.get_node("Sprite"))
 #	add_child(player)
@@ -51,19 +52,19 @@ func _process(delta):
 	
 #	if Input.is_key_pressed(KEY_LEFT):
 	if Input.is_action_pressed("ui_left"):
-		v.x = -speed
+		v.x = -Singleton.player1.speed
 		spritedir = "left"
 #	elif Input.is_key_pressed(KEY_RIGHT):
 	elif Input.is_action_pressed("ui_right"):
-		v.x = speed
+		v.x = Singleton.player1.speed
 		spritedir = "right"
 #	elif Input.is_key_pressed(KEY_UP):
 	elif Input.is_action_pressed("ui_up"):
-		v.y = -speed
+		v.y = -Singleton.player1.speed
 		spritedir = "up"
 #	elif Input.is_key_pressed(KEY_DOWN):
 	elif Input.is_action_pressed("ui_down"):
-		v.y = speed
+		v.y = Singleton.player1.speed
 		spritedir = "down"
 		
 		
@@ -78,19 +79,19 @@ func _process(delta):
 	
 	if Input.is_key_pressed(KEY_LEFT):
 #	if Input.is_action_pressed("ui_left"):
-		v1.x = -speed
+		v1.x = -Singleton.player2.speed
 		spritedir = "left"
 	elif Input.is_key_pressed(KEY_RIGHT):
 #	elif Input.is_action_pressed("ui_right"):
-		v1.x = speed
+		v1.x = Singleton.player2.speed
 		spritedir = "right"
 	elif Input.is_key_pressed(KEY_UP):
 #	elif Input.is_action_pressed("ui_up"):
-		v1.y = -speed
+		v1.y = -Singleton.player2.speed
 		spritedir = "up"
 	elif Input.is_key_pressed(KEY_DOWN):
 #	elif Input.is_action_pressed("ui_down"):
-		v1.y = speed
+		v1.y = Singleton.player2.speed
 		spritedir = "down"
 		
 		
@@ -134,6 +135,7 @@ func _input(event):
 		
 		var bomb = Bomb.instance()
 		
+		bomb.max_bomb = Singleton.player1.range_bomb 
 		
 		bomb.scale = Vector2(1,1)
 		bomb.z_index = -1
@@ -181,6 +183,9 @@ func _input(event):
 		
 		var bomb1 = Bomb.instance()
 		
+#		bomb1.tttt(1)
+		
+		bomb1.max_bomb = Singleton.player2.range_bomb 
 		
 		bomb1.scale = Vector2(1,1)
 		bomb1.z_index = -1

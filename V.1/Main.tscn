@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Tilemap/tile.tres" type="TileSet" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Bot(AI)/Bots.gd" type="Script" id=7]
 [ext_resource path="res://Bot(AI)/bot.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Item/AddBomb.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Item/BootSpeed.tscn" type="PackedScene" id=10]
 
 [node name="Main" type="Node2D" index="0"]
 
@@ -73,6 +75,8 @@ script = ExtResource( 3 )
 _sections_unfolded = [ "Cell" ]
 
 [node name="rocks" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
 
 [node name="rock" parent="rocks" index="0" instance=ExtResource( 4 )]
 
@@ -198,7 +202,7 @@ scale = Vector2( 1.16773, 1.16399 )
 
 [node name="rock31" parent="rocks" index="25" instance=ExtResource( 4 )]
 
-position = Vector2( 496.096, 240.1 )
+position = Vector2( 496.763, 209.434 )
 scale = Vector2( 1.16773, 1.16399 )
 
 [node name="rock34" parent="rocks" index="26" instance=ExtResource( 4 )]
@@ -262,6 +266,8 @@ position = Vector2( 272.096, 208.1 )
 scale = Vector2( 1.16773, 1.16399 )
 
 [node name="wall" type="Node2D" parent="." index="3"]
+
+editor/display_folded = true
 
 [node name="StaticBody2D" parent="wall" index="0" instance=ExtResource( 5 )]
 
@@ -350,7 +356,7 @@ position = Vector2( 301.516, 304 )
 
 [node name="StaticBody2D21" parent="wall" index="21" instance=ExtResource( 5 )]
 
-position = Vector2( 464.163, 271.901 )
+position = Vector2( 463.496, 272.567 )
 scale = Vector2( 1.01447, 1.00717 )
 
 [node name="StaticBody2D22" parent="wall" index="22" instance=ExtResource( 5 )]
@@ -436,5 +442,15 @@ script = ExtResource( 7 )
 [node name="Bot" parent="Bots" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( 438.149, 78.884 )
+
+[node name="item" type="Node2D" parent="." index="7"]
+
+[node name="AddBomb" parent="item" index="0" instance=ExtResource( 9 )]
+
+position = Vector2( 511.678, 245.029 )
+
+[node name="BootSpeed" parent="item" index="1" instance=ExtResource( 10 )]
+
+position = Vector2( 508.595, 272.072 )
 
 

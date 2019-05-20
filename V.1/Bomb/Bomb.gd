@@ -26,6 +26,7 @@ var destory = []
 var idx = 0
 #var img = preload("res://Bomb/fire.tscn")
 func _ready():
+	
 	Singleton.list_bomb.append(self)
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
@@ -34,9 +35,11 @@ func _ready():
 #	print(get_node("CollisionShape2D"))
 #	collision_H = get_node("Collision_H")
 #	collision_V = get_node("Collision_V")
-
+	pass
+func _init():
 	
 	pass
+
 
 func _on_Timer_timeout():	
 	time_boom +=0.1
@@ -199,7 +202,7 @@ func _on_Timer_timeout():
 #			idx +=1
 #		print(Singleton.list_rock)
 #		print(Singleton.list_bomb)
-		get_tree().root.print_tree_pretty()
+#		get_tree().root.print_tree_pretty()
 		queue_free()
 		
 	
@@ -214,11 +217,11 @@ func _on_Bomb_body_entered(body):
 	for L in Singleton.list_rock:
 	
 		if L == body:
-			print("โดนหิน")
-			print(L)
+#			print("โดนหิน")
+#			print(L)
 			Singleton.list_rock.remove(idx)
 			L.queue_free()
-			print(Singleton.list_rock)
+#			print(Singleton.list_rock)
 		idx +=1
 #	print(Singleton.list_rock)	
 	
@@ -245,30 +248,30 @@ func _on_Bomb_body_shape_entered(body_id, body, body_shape, area_shape):
 		for L in Singleton.list_wall:
 			if L == body&& k == area_shape:
 				find_wall_top = false
-				print("โดนกำแพง")
-				print(L)	
+#				print("โดนกำแพง")
+#				print(L)	
 #	if area_shape == 1 :
 	for k in collect_right_area:
 		for L in Singleton.list_wall:
 			if L == body && k == area_shape:
 				find_wall_right = false
-				print("โดนกำแพง")
-				print(L)	
+#				print("โดนกำแพง")
+#				print(L)	
 #	if area_shape == 2 :
 	for k in collect_down_area:
 		for L in Singleton.list_wall:
 			if L == body && k == area_shape:
 				find_wall_down = false
-				print("โดนกำแพง")
-				print(L)	
+#				print("โดนกำแพง")
+#				print(L)	
 				
 #	if area_shape == 3 :
 	for k in collect_left_area:
 		for L in Singleton.list_wall:
 			if L == body&& k ==area_shape:
 				find_wall_left = false
-				print("โดนกำแพงซ้าย ที่",area_shape ,"กับ ",k)
-				print(L)	
+#				print("โดนกำแพงซ้าย ที่",area_shape ,"กับ ",k)
+#				print(L)	
 				
 #	check_wall(collect_top_area,find_wall_top,body,area_shape)
 #	check_wall(collect_right_area,find_wall_right,body,area_shape)
@@ -280,6 +283,6 @@ func check_wall(collect,find_wall,body,area_shape):
 		for L in Singleton.list_wall:
 			if L == body&& k ==area_shape:
 				find_wall = false
-				print("โดนกำแพง ที่",area_shape ,"กับ ",k)
-				print(L)	
-	
+#				print("โดนกำแพง ที่",area_shape ,"กับ ",k)
+#				print(L)	
+
