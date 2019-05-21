@@ -24,6 +24,8 @@ var collect_top_area = []
 var collect_down_area = []
 var destory = []
 var idx = 0
+
+var self_player
 #var img = preload("res://Bomb/fire.tscn")
 func _ready():
 	
@@ -31,14 +33,14 @@ func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	
-	
 #	print(get_node("CollisionShape2D"))
 #	collision_H = get_node("Collision_H")
 #	collision_V = get_node("Collision_V")
 	pass
-func _init():
-	
-	pass
+
+#func set1():
+#
+#	pass
 
 
 func _on_Timer_timeout():	
@@ -162,7 +164,7 @@ func _on_Timer_timeout():
 #			print(shape)
 #			if(colision_wall):	
 			collect_left_area.append(count_area)
-			print("collect in left ",collect_left_area)
+#			print("collect in left ",collect_left_area)
 			var img = Sprite.new()
 			img.texture = load("res://Bomb/fire.jpg")
 			img.position.x = -32*(count_bomb_left+1)
@@ -175,7 +177,7 @@ func _on_Timer_timeout():
 		
 	#destroy boom
 	elif time_boom >3:
-		
+		self_player.number_current_bomb -=1
 #		var idx = 0
 #		print(destory)
 ##		queue_free()
@@ -203,6 +205,7 @@ func _on_Timer_timeout():
 #		print(Singleton.list_rock)
 #		print(Singleton.list_bomb)
 #		get_tree().root.print_tree_pretty()
+		print("ระเบิดแล้ว")
 		queue_free()
 		
 	

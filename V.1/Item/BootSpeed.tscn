@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://Item/BootSpeed.gd" type="Script" id=1]
 [ext_resource path="res://Item/img/psd-pink-cartoon-children's-shoes-hand-drawn-illustration-heypik-82U4570.jpg" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="KinematicBody2D" type="Area2D"]
+[node name="BootSpeed" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )

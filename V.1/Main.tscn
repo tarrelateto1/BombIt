@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Tilemap/tile.tres" type="TileSet" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Bot(AI)/bot.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Item/AddBomb.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Item/BootSpeed.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Item/balloon.tscn" type="PackedScene" id=11]
 
 [node name="Main" type="Node2D" index="0"]
 
@@ -356,7 +357,7 @@ position = Vector2( 301.516, 304 )
 
 [node name="StaticBody2D21" parent="wall" index="21" instance=ExtResource( 5 )]
 
-position = Vector2( 463.496, 272.567 )
+position = Vector2( 454.337, 262.676 )
 scale = Vector2( 1.01447, 1.00717 )
 
 [node name="StaticBody2D22" parent="wall" index="22" instance=ExtResource( 5 )]
@@ -433,7 +434,7 @@ position = Vector2( 111.532, 78.5982 )
 "Player",
 ] instance=ExtResource( 6 )]
 
-position = Vector2( 495.532, 302.598 )
+position = Vector2( 498.096, 300.766 )
 
 [node name="Bots" type="Node2D" parent="." index="6"]
 
@@ -445,6 +446,8 @@ position = Vector2( 438.149, 78.884 )
 
 [node name="item" type="Node2D" parent="." index="7"]
 
+position = Vector2( -0.732666, -11.3567 )
+
 [node name="AddBomb" parent="item" index="0" instance=ExtResource( 9 )]
 
 position = Vector2( 511.678, 245.029 )
@@ -452,5 +455,9 @@ position = Vector2( 511.678, 245.029 )
 [node name="BootSpeed" parent="item" index="1" instance=ExtResource( 10 )]
 
 position = Vector2( 508.595, 272.072 )
+
+[node name="Area2D" parent="item" index="2" instance=ExtResource( 11 )]
+
+position = Vector2( 456.588, 315.104 )
 
 
