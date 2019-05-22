@@ -36,6 +36,7 @@ func _ready():
 		Singleton.list_rock.append(N)
 #	Singleton.list_rock[0].queue_free()
 #	print(Singleton.list_rock)
+	Singleton.grid = get_node("TileMap")
 	grid = get_node("TileMap")
 	for N in get_node("wall").get_children():
 		Singleton.list_wall.append(N)
@@ -136,16 +137,17 @@ func _input(event):
 		
 		if Singleton.player1.number_current_bomb < Singleton.player1.number_bomb:
 			
-			var bomb = Bomb.instance()
+			Singleton.player1.add_bomb()
 			
-			bomb.max_bomb = Singleton.player1.range_bomb 
-			bomb.scale = Vector2(1,1)
-			bomb.z_index = -1
-			var g = grid.is_cell_vacant($Player.get_position())
-	#		bomb.position = Vector2(170,70)
-			bomb.position = Vector2((g.x*$TileMap.cell_size.x)+$TileMap.cell_size.x/2,(g.y*$TileMap.cell_size.y)+$TileMap.cell_size.y/2)
-	#		bomb.position = Vector2($Player.get_position().x,$Player.get_position().y)
-			add_child(bomb)
+#			var bomb = Bomb.instance()
+#			bomb.max_bomb = Singleton.player1.range_bomb 
+#			bomb.scale = Vector2(1,1)
+#			bomb.z_index = -1
+#			var g = grid.is_cell_vacant($Player.get_position())
+#
+#			bomb.position = Vector2((g.x*$TileMap.cell_size.x)+$TileMap.cell_size.x/2,(g.y*$TileMap.cell_size.y)+$TileMap.cell_size.y/2)
+#
+#			add_child(bomb)
 	#		print(bomb.get_position())
 	#		var g = grid.is_cell_vacant(bomb.get_position())
 			
@@ -185,18 +187,20 @@ func _input(event):
 	if Input.is_key_pressed(KEY_SPACE):
 #	if Input.is_action_pressed("Bomb"):
 		if Singleton.player2.number_current_bomb < Singleton.player2.number_bomb:
-			print("วางแล้ว")
-			var bomb1 = Bomb1.instance()
-			Singleton.player2.number_current_bomb +=1
-			bomb1.max_bomb = Singleton.player2.range_bomb 
-			bomb1.self_player = Singleton.player2
-			bomb1.scale = Vector2(1,1)
-			bomb1.z_index = -1
-			var g1 = grid.is_cell_vacant($Player2.get_position())
-	#		bomb.position = Vector2(170,70)
-			bomb1.position = Vector2((g1.x*$TileMap.cell_size.x)+$TileMap.cell_size.x/2,(g1.y*$TileMap.cell_size.y)+$TileMap.cell_size.y/2)
-	#		bomb.position = Vector2($Player.get_position().x,$Player.get_position().y)
-			add_child(bomb1)
+			Singleton.player2.add_bomb()
+			
+#			print("วางแล้ว")
+#			var bomb1 = Bomb1.instance()
+#			Singleton.player2.number_current_bomb +=1
+#			bomb1.max_bomb = Singleton.player2.range_bomb 
+#			bomb1.self_player = Singleton.player2
+#			bomb1.scale = Vector2(1,1)
+#			bomb1.z_index = -1
+#			var g1 = grid.is_cell_vacant($Player2.get_position())
+#	#		bomb.position = Vector2(170,70)
+#			bomb1.position = Vector2((g1.x*$TileMap.cell_size.x)+$TileMap.cell_size.x/2,(g1.y*$TileMap.cell_size.y)+$TileMap.cell_size.y/2)
+#	#		bomb.position = Vector2($Player.get_position().x,$Player.get_position().y)
+#			add_child(bomb1)
 		
 	pass
 #

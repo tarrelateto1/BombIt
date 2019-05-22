@@ -10,7 +10,7 @@ var count_bomb_top = 0
 var count_bomb_right = 0
 var count_bomb_down = 0
 var count_bomb_left = 0
-var max_bomb = 3
+var max_bomb = 1
 var find_wall_top = true
 var find_wall_right = true
 var find_wall_down = true
@@ -25,7 +25,7 @@ var collect_down_area = []
 var destory = []
 var idx = 0
 
-var self_player
+
 #var img = preload("res://Bomb/fire.tscn")
 func _ready():
 	
@@ -177,7 +177,7 @@ func _on_Timer_timeout():
 		
 	#destroy boom
 	elif time_boom >3:
-		self_player.number_current_bomb -=1
+#		self_player.number_current_bomb -=1
 #		var idx = 0
 #		print(destory)
 ##		queue_free()
