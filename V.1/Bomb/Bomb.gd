@@ -205,7 +205,7 @@ func _on_Timer_timeout():
 #		print(Singleton.list_rock)
 #		print(Singleton.list_bomb)
 #		get_tree().root.print_tree_pretty()
-		print("ระเบิดแล้ว")
+#		print("ระเบิดแล้ว")
 		queue_free()
 		
 	
