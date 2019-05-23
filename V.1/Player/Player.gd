@@ -9,12 +9,8 @@ var range_bomb 		#update cola
 var number_bomb		 #update balloon
 var number_current_bomb
 var Bomb = preload("res://Bomb/Bomb.tscn")
-
 #item 
 var item_speed
-
-
-
 var grid
 var list_bomb = []
 

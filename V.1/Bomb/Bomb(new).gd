@@ -130,7 +130,7 @@ func _on_Timer_timeout():
 		for D in destory:
 			for L in Singleton.list_rock.get_children():
 				if D == L:
-					L.delete()
+					L.queue_free()
 
 		player.number_current_bomb -=1
 #		print(player.number_current_bomb)

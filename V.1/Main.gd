@@ -25,9 +25,9 @@ func _ready():
 	Singleton.player2 = $Player2
 	
 	Singleton.player.append(player)
-	
-	for N in get_node("rocks").get_children():
-		Singleton.list_rock.append(N)
+	Singleton.list_rock = get_node("rocks")
+#	for N in get_node("rocks").get_children():
+#		Singleton.list_rock.append(N)
 
 	Singleton.grid = get_node("TileMap")
 	grid = get_node("TileMap")

@@ -4,7 +4,7 @@ extends Node2D
 # var a = 2
 # var b = "textvar"
 var a =1
-var list_rock = []
+var list_rock 
 var list_wall = []
 var player = []
 var player2

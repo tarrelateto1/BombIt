@@ -14,6 +14,7 @@ func _ready():
 #	# Update game logic here.
 #	pass
 func delete():
+	
 	self.queue_free()
 
 
