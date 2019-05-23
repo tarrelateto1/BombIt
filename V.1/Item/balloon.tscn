@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Item/balloon.gd" type="Script" id=1]
-[ext_resource path="res://Item/img/56432666-realistic-red-balloon-on-transparent-checkered-background-balloon-air-birthday-helium-balloon-moving.jpg" type="Texture" id=2]
+[ext_resource path="res://Item/img/bomb.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Balloon" type="Area2D"]
+[node name="Balloon" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -21,7 +21,7 @@ script = ExtResource( 1 )
 
 [node name="img" type="Sprite" parent="." index="0"]
 
-scale = Vector2( 0.0246154, 0.0246154 )
+scale = Vector2( 0.0478623, 0.045316 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 

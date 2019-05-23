@@ -17,6 +17,7 @@ onready var player = get_node("Player")
 var grid
 
 func _ready():
+	Singleton.main = self
 	Singleton.list_bomb.append(self)
 	# Called when the node is added to the scene for the first time.
 	# Initialization here

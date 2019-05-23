@@ -63,7 +63,7 @@ func _on_Timer_timeout():
 			add_child(collision_H_TOP)
 			count_area+=1	
 			count_bomb_top+=1
-		print(find_wall_top)
+#		print(find_wall_top)
 
 		# RIGHT
 		if count_bomb_right < max_bomb && find_wall_right:
@@ -162,11 +162,28 @@ func _on_Bomb_body_entered(body):
 	destory.append(body)	
 	for L in Singleton.list_rock.get_children():
 		if L == body:
-#			print("โดนหิน")
-#			print(L)
-#			Singleton.list_rock.remove(idx)
-#			Singleton.list_rock.remove(idx)
-			L.queue_free()
+#			add_child(var AddBomb = preload("res://Item/AddBomb.gd"))
+#			var x= randi()%10
+#			match x:
+#				1:
+#					var AddBomb = preload("res://Item/AddBomb.gd")
+#	#				get_parent().get_parent().get_node("item").add_child(AddBomb)
+#				2:
+#					var balloon = preload("res://Item/balloon.gd")
+#	#				get_parent().get_parent().get_node("item").add_child(balloon)
+#				3:
+#					var BootSpeed = preload("res://Item/BootSpeed.gd")
+#	#				get_parent().get_parent().get_node("item").add_child(BootSpeed)
+#				4:
+#					var Heart = preload("res://Item/Heart.gd")
+#	#				get_parent().get_parent().get_node("item").add_child(Heart)
+#				5:
+#					var shield = preload("res://Item/shield.gd")
+#	#				get_parent().get_parent().get_node("item").add_child(shield)
+#				_:
+#					print("not have")
+
+			L.delete()
 
 		idx +=1
 

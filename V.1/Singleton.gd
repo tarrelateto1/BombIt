@@ -12,6 +12,7 @@ var player1
 var speed = 200
 var list_bomb = []
 var grid
+var main
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here

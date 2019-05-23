@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Tilemap/tile3.tres" type="TileSet" id=2]
@@ -19,15 +19,10 @@
 [ext_resource path="res://Rock/Rock.tscn" type="PackedScene" id=17]
 [ext_resource path="res://wall/wallD.tscn" type="PackedScene" id=18]
 [ext_resource path="res://wall/wallD1.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Item/AddBomb.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Item/BootSpeed.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Item/balloon.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Item/Heart.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Item/shield.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=25]
-[ext_resource path="res://Player/Player2.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Player/Player2.tscn" type="PackedScene" id=21]
 
-[node name="Main" type="Node2D" index="0"]
+[node name="Main" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -56,7 +51,6 @@ _sections_unfolded = [ "Cell", "Collision", "Transform", "Z Index" ]
 
 [node name="Control" type="Control" parent="." index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1440,37 +1434,14 @@ scale = Vector2( 1.281, 0.8435 )
 
 [node name="item" type="Node2D" parent="." index="6"]
 
-editor/display_folded = true
 position = Vector2( -509, -286 )
 
-[node name="AddBomb" parent="item" index="0" instance=ExtResource( 20 )]
-
-position = Vector2( 479, 240 )
-
-[node name="BootSpeed" parent="item" index="1" instance=ExtResource( 21 )]
-
-position = Vector2( 458, 255 )
-
-[node name="Area2D" parent="item" index="2" instance=ExtResource( 22 )]
-
-position = Vector2( 1012.71, 385.725 )
-
-[node name="Heart" parent="item" index="3" instance=ExtResource( 23 )]
-
-position = Vector2( 420.557, 317.713 )
-
-[node name="shield" parent="item" index="4" instance=ExtResource( 24 )]
-
-position = Vector2( 334, 556 )
-scale = Vector2( 0.984375, 0.9375 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Player" parent="." index="7" instance=ExtResource( 25 )]
+[node name="Player" parent="." index="7" instance=ExtResource( 20 )]
 
 position = Vector2( 458.504, 101.578 )
 scale = Vector2( 0.796875, 0.71875 )
 
-[node name="Player2" parent="." index="8" instance=ExtResource( 26 )]
+[node name="Player2" parent="." index="8" instance=ExtResource( 21 )]
 
 position = Vector2( 940.708, 499.225 )
 scale = Vector2( 0.396841, 0.359375 )

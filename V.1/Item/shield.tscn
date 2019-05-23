@@ -21,7 +21,7 @@ script = ExtResource( 1 )
 
 [node name="shield" type="Sprite" parent="." index="0"]
 
-scale = Vector2( 0.118519, 0.110345 )
+scale = Vector2( 0.150997, 0.134404 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 

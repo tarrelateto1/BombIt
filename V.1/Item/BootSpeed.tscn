@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Item/BootSpeed.gd" type="Script" id=1]
-[ext_resource path="res://Item/img/psd-pink-cartoon-children's-shoes-hand-drawn-illustration-heypik-82U4570.jpg" type="Texture" id=2]
+[ext_resource path="res://Item/img/boot.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 

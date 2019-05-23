@@ -32,6 +32,7 @@ func _ready():
 	pass
 
 func add_bomb():
+	print(self.get_position())
 #	print(number_current_bomb)
 #	print(number_bomb)
 	if number_current_bomb == 0  :

@@ -7,6 +7,7 @@ extends Area2D
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
+	print("kkk")
 	pass
 
 #func _process(delta):
@@ -16,6 +17,7 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
+	print(body)
 	if body == Singleton.player2:
 		Singleton.player2.range_bomb += 1
 		print("player2")
