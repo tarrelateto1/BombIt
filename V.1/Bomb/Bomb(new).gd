@@ -187,12 +187,19 @@ func _on_Bomb_body_shape_entered(body_id, body, body_shape, area_shape):
 	if boom:
 		if attack :
 			if body == Singleton.player1:
-				Singleton.player1.hp -=1
+				if Singleton.player1.shield >0 :
+					Singleton.player1.shield -=1
+				else :
+					Singleton.player1.hp -=1
+				
 	#			print(1)
 				attack = false
 			if body == Singleton.player2:
-				Singleton.player2.hp -=1
-	#			print(2)
+				if Singleton.player2.shield >0 :
+					Singleton.player2.shield -=1
+				else :
+					Singleton.player2.hp -=1
+				print(Singleton.player2.shield)
 				attack = false
 	
 

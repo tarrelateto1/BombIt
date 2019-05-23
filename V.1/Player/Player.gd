@@ -7,8 +7,10 @@ var hp 				# update hp
 var speed 
 var range_bomb 		#update cola
 var number_bomb		 #update balloon
+var shield
 var number_current_bomb
 var Bomb = preload("res://Bomb/Bomb.tscn")
+
 #item 
 var item_speed
 var grid
@@ -23,6 +25,7 @@ func _ready():
 	grid = Singleton.grid
 	hp = 3
 	speed = 200
+	shield = 0
 	range_bomb=1
 	number_bomb=1
 	number_current_bomb=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Tilemap/tile.tres" type="TileSet" id=2]
@@ -17,8 +17,9 @@
 [ext_resource path="res://Item/BootSpeed.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Item/balloon.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Item/Heart.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Item/shield.tscn" type="PackedScene" id=18]
 
-[node name="Main" type="Node2D" index="0"]
+[node name="Main" type="Node2D"]
 
 position = Vector2( 351.844, 122.283 )
 script = ExtResource( 1 )
@@ -979,6 +980,7 @@ position = Vector2( 498.096, 300.766 )
 
 [node name="Bots" type="Node2D" parent="." index="6"]
 
+editor/display_folded = true
 script = ExtResource( 12 )
 
 [node name="Bot" parent="Bots" index="0" instance=ExtResource( 13 )]
@@ -1004,5 +1006,10 @@ position = Vector2( 456.588, 315.104 )
 [node name="Heart" parent="item" index="3" instance=ExtResource( 17 )]
 
 position = Vector2( 420.557, 317.713 )
+
+[node name="shield" parent="item" index="4" instance=ExtResource( 18 )]
+
+position = Vector2( 1407.99, 619.184 )
+_sections_unfolded = [ "Transform" ]
 
 

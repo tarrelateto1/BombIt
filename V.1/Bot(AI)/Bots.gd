@@ -69,7 +69,7 @@ func _process(delta):
 #	print(Singleton.grid.is_cell_vacant(p))
 	var pos_bot=Singleton.grid.is_cell_vacant(p)
 #	print(abs(pos_rock-pos_bot))
-	print(Vector2(abs(pos_rock.x-pos_bot.x),abs(pos_rock.y-pos_bot.y)))
+#	print(Vector2(abs(pos_rock.x-pos_bot.x),abs(pos_rock.y-pos_bot.y)))
 	
 	var pos_can_bomb = Vector2(abs(pos_rock.x-pos_bot.x),abs(pos_rock.y-pos_bot.y))
 	
