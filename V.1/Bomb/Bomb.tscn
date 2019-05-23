@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Bomb/Bomb.gd" type="Script" id=1]
 [ext_resource path="res://Bomb/bomb_by_drcappella-dc3peuv.png" type="Texture" id=2]
 
-[node name="Bomb" type="Area2D"]
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Bomb" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -30,7 +35,12 @@ autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
+position = Vector2( -2.37584, 2.37585 )
+shape = SubResource( 1 )
+
 [connection signal="body_entered" from="." to="." method="_on_Bomb_body_entered"]
+
+[connection signal="body_exited" from="." to="." method="_on_Bomb_body_exited"]
 
 [connection signal="body_shape_entered" from="." to="." method="_on_Bomb_body_shape_entered"]
 

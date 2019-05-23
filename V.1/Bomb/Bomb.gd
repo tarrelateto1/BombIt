@@ -20,8 +20,9 @@ var collect_top_area = []
 var collect_down_area = []
 var destory = []
 var idx = 0
-
-
+var attack = true
+var boom = false
+var player 
 
 func _ready():
 	
@@ -29,12 +30,15 @@ func _ready():
 	
 	pass
 
+func _update(x):
+	player = x
+
 
 func _on_Timer_timeout():	
 	time_boom +=0.1
 
 	if time_boom > 2 && time_boom <3:
-
+		boom = true
 		# top
 		if count_bomb_top < max_bomb && find_wall_top:
 #			print(count_bomb_right)
@@ -112,11 +116,17 @@ func _on_Timer_timeout():
 			add_child(collision_V_LEFT)
 			count_area+=1	
 			count_bomb_left+=1
+			var CENTER = RectangleShape2D.new()
+			CENTER.set_extents(Vector2(10,10))
+			$CollisionShape2D.set_shape(CENTER)
+			$Sprite.texture = load("res://Bomb/fire.jpg")
+			
 		
 	#destroy boom
 	elif time_boom >3:
-#		self_player.number_current_bomb -=1
 
+		player.number_current_bomb -=1
+#		print(player.number_current_bomb)
 		queue_free()
 		
 	
@@ -144,7 +154,7 @@ func _on_Bomb_body_entered(body):
 
 
 func _on_Bomb_body_shape_entered(body_id, body, body_shape, area_shape):
-
+#	print(body)
 	for k in collect_top_area:
 		for L in Singleton.list_wall:
 			if L == body&& k == area_shape:
@@ -170,7 +180,17 @@ func _on_Bomb_body_shape_entered(body_id, body, body_shape, area_shape):
 				find_wall_left = false
 #				print("โดนกำแพงซ้าย ที่",area_shape ,"กับ ",k)
 #				print(L)	
-				
+	if boom:
+		if attack :
+			if body == Singleton.player1:
+				Singleton.player1.hp -=1
+	#			print(1)
+				attack = false
+			if body == Singleton.player2:
+				Singleton.player2.hp -=1
+	#			print(2)
+				attack = false
+	
 
 # ยังไม่ได้ใช้
 func check_wall(collect,find_wall,body,area_shape):
@@ -180,3 +200,28 @@ func check_wall(collect,find_wall,body,area_shape):
 				find_wall = false
 
 
+
+
+func _on_Bomb_body_exited(body):
+	if body == Singleton.player1:
+		var kine = KinematicBody2D.new()
+		var cannt_move = RectangleShape2D.new()
+		cannt_move.set_extents(Vector2(10,10))
+		var col_move = CollisionShape2D.new()
+		col_move.set_shape(cannt_move)
+		kine.add_child(col_move)
+		add_child(kine)
+
+		
+#		Singleton.player.move = false
+	if body == Singleton.player2:
+		var kine = KinematicBody2D.new()
+		var cannt_move = RectangleShape2D.new()
+		cannt_move.set_extents(Vector2(10,10))
+		var col_move = CollisionShape2D.new()
+		col_move.set_shape(cannt_move)
+		kine.add_child(col_move)
+		add_child(kine)
+		pass
+#		Singleton.player.move = false
+	pass # replace with function body

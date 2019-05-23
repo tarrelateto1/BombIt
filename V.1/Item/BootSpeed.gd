@@ -18,11 +18,13 @@ func _ready():
 func _on_KinematicBody2D_body_entered(body):
 	
 	if body == Singleton.player2:
-		Singleton.player2.speed += 1000
+		Singleton.player2.speed += 200
+		Singleton.player2.item_speed += 1
 		print("player2")
 		queue_free()
 	elif body == Singleton.player1:
-		Singleton.player1.speed += 1000
+		Singleton.player1.speed += 200
+		Singleton.player1.item_speed += 1
 		print("player1")
 		queue_free()
 		

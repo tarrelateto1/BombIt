@@ -21,7 +21,9 @@ func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	Singleton.player1 = $Player
+	print(Singleton.player1)
 	Singleton.player2 = $Player2
+	
 	Singleton.player.append(player)
 	
 	for N in get_node("rocks").get_children():
@@ -34,7 +36,8 @@ func _ready():
 
 
 func _process(delta):
-
+	update_player1()
+	update_player2()
 
 	var v = Vector2()
 	
@@ -107,9 +110,9 @@ func _input(event):
 
 	if Input.is_action_pressed("Bomb"):
 		
-		if Singleton.player1.number_current_bomb < Singleton.player1.number_bomb:
+#		if Singleton.player1.number_current_bomb < Singleton.player1.number_bomb:
 			
-			Singleton.player1.add_bomb()
+		Singleton.player1.add_bomb()
 	
 
 #####player2
@@ -139,6 +142,19 @@ func anim_switch(animation):
 
 		player.get_node("AnimationPlayer").play(animation)
 
+func update_player1():
+	get_node("Control/Player1/hp").text = String($Player.hp)
+	get_node("Control/Player1/fire").text = String($Player.range_bomb)
+	get_node("Control/Player1/num_bomb").text = String($Player.number_bomb)
+	get_node("Control/Player1/speed").text = String($Player.item_speed)
+	pass
+
+func update_player2():
+	get_node("Control/Player2/hp2").text = String($Player2.hp)
+	get_node("Control/Player2/fire2").text = String($Player2.range_bomb)
+	get_node("Control/Player2/num_bomb2").text = String($Player2.number_bomb)
+	get_node("Control/Player2/speed2").text = String($Player2.item_speed)
+	
 
 	
 
