@@ -18,7 +18,7 @@
 [ext_resource path="res://Item/balloon.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Item/Heart.tscn" type="PackedScene" id=17]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" index="0"]
 
 position = Vector2( 351.844, 122.283 )
 script = ExtResource( 1 )
@@ -570,6 +570,7 @@ texture = ExtResource( 8 )
 
 [node name="Logo" type="NinePatchRect" parent="Control" index="4"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0

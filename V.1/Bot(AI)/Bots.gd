@@ -31,15 +31,15 @@ func _process(delta):
 #				print(tings.global_position.x)
 #				print(tings.global_position.x," and bot : ",self.global_position.x)
 
-	if Singleton.list_rock.size()>0:
-		rock_min = Singleton.list_rock[0]
+#	if Singleton.list_rock.size()>0:
+#		rock_min = Singleton.list_rock[0]
 #	print(rock_min)
-		for N in Singleton.list_rock:
+#		for N in Singleton.list_rock:
 ##		Singleton.list_rock.append(N)
 #			print(Singleton.list_rock)
-			
-			if N.get_position().distance_to($Bot.get_position()) < rock_min.get_position().distance_to($Bot.get_position()) :
-				rock_min = N
+#			print()
+#			if N.get_position().distance_to($Bot.get_position()) < rock_min.get_position().distance_to($Bot.get_position()) :
+#				rock_min = N
 			
 	
 #	print(rock_min)
@@ -53,23 +53,23 @@ func _process(delta):
 #	elif(body.get_position().y>$Bot.get_position().y):
 #		Move += Vector2(0,1)
 		
-		if(rock_min != null):
-			if(rock_min.get_position().x<$Bot.get_position().x):
-				Move += Vector2(-1,0)
-			elif(rock_min.get_position().x>$Bot.get_position().x):
-				Move += Vector2(1,0)
-			if(rock_min.get_position().y<$Bot.get_position().y):
-				Move += Vector2(0,-1)
-			elif(rock_min.get_position().y>$Bot.get_position().y):
-				Move += Vector2(0,1)
+#		if(rock_min != null):
+#			if(rock_min.get_position().x<$Bot.get_position().x):
+#				Move += Vector2(-1,0)
+#			elif(rock_min.get_position().x>$Bot.get_position().x):
+#				Move += Vector2(1,0)
+#			if(rock_min.get_position().y<$Bot.get_position().y):
+#				Move += Vector2(0,-1)
+#			elif(rock_min.get_position().y>$Bot.get_position().y):
+#				Move += Vector2(0,1)
 		
 #	if(rock_min != null):
 #		var tangent = rock_min.get_position().distance_to($Bot.get_position()) 
 #	print(tangent)
 
-	Move = Move.normalized() * speed * delta
-#	print(Move)
-	$Bot.move_and_collide(Move)
+#	Move = Move.normalized() * speed * delta
+##	print(Move)
+#	$Bot.move_and_collide(Move)
 
 	pass
 

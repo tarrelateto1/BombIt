@@ -124,6 +124,11 @@ func _on_Timer_timeout():
 		
 	#destroy boom
 	elif time_boom >3:
+		
+		for D in destory:
+			for L in Singleton.list_rock:
+				if D == L:
+					L.queue_free()
 
 		player.number_current_bomb -=1
 #		print(player.number_current_bomb)
@@ -135,18 +140,15 @@ func _on_Timer_timeout():
 
 func _on_Bomb_body_entered(body):
 	var idx = 0
-	destory.append(body)
-
-	
-	for L in Singleton.list_rock:
-	
-		if L == body:
-#			print("โดนหิน")
-#			print(L)
-			Singleton.list_rock.remove(idx)
-			L.queue_free()
-
-		idx +=1
+	destory.append(body)	
+#	for L in Singleton.list_rock:
+#		if L == body:
+##			print("โดนหิน")
+##			print(L)
+#			Singleton.list_rock.remove(idx)
+#			L.queue_free()
+#
+#		idx +=1
 
 	pass # replace with function body
 
