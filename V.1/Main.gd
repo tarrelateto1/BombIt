@@ -38,25 +38,25 @@ func _ready():
 func _process(delta):
 	update_player1()
 	update_player2()
-
+	
 	var v = Vector2()
 	
 
 	if Input.is_action_pressed("ui_left"):
 		v.x = -Singleton.player1.speed
-		spritedir = "left"
+		spritedir = "P1_left"
 
 	elif Input.is_action_pressed("ui_right"):
 		v.x = Singleton.player1.speed
-		spritedir = "right"
+		spritedir = "P1_right"
 
 	elif Input.is_action_pressed("ui_up"):
 		v.y = -Singleton.player1.speed
-		spritedir = "up"
+		spritedir = "P1_up"
 
 	elif Input.is_action_pressed("ui_down"):
 		v.y = Singleton.player1.speed
-		spritedir = "down"
+		spritedir = "P1_down"
 		
 		
 	
@@ -70,16 +70,16 @@ func _process(delta):
 	
 	if Input.is_key_pressed(KEY_LEFT):
 		v1.x = -Singleton.player2.speed
-		spritedir = "left"
+		spritedir = "P2_left"
 	elif Input.is_key_pressed(KEY_RIGHT):
 		v1.x = Singleton.player2.speed
-		spritedir = "right"
+		spritedir = "P2_right"
 	elif Input.is_key_pressed(KEY_UP):
 		v1.y = -Singleton.player2.speed
-		spritedir = "up"
+		spritedir = "P2_up"
 	elif Input.is_key_pressed(KEY_DOWN):
 		v1.y = Singleton.player2.speed
-		spritedir = "down"
+		spritedir = "P2_down"
 		
 		
 	
@@ -87,25 +87,26 @@ func _process(delta):
 	if ds1 != Vector2(0,0):
 
 			$Player2.move_and_collide(v1*delta)
+#	print($Player2.get_position())
 
 func _input(event):
 	
 
 	if Input.is_action_pressed("ui_left"):
 
-		anim_switch("walkleft")
+		anim_switch("P1_walkleft")
 
 	elif Input.is_action_pressed("ui_right"):
 
-		anim_switch("walkright")
+		anim_switch("P1_walkright")
 
 	elif Input.is_action_pressed("ui_up"):
 
-		anim_switch("walkup")
+		anim_switch("P1_walkup")
 
 	elif Input.is_action_pressed("ui_down"):
 
-		anim_switch("walkdown")	
+		anim_switch("P1_walkdown")	
 		
 
 	if Input.is_action_pressed("Bomb"):
@@ -117,19 +118,17 @@ func _input(event):
 
 #####player2
 	if Input.is_key_pressed(KEY_LEFT) :
-		anim_switch("walkleft")
+		$Player2.get_node("AnimationPlayer").play("P2_walkleft")
+		anim_switch_2("P2_walkleft")
 	elif Input.is_key_pressed(KEY_RIGHT) :
-		anim_switch("walkright")
+		anim_switch_2("P2_walkright")
 	if Input.is_key_pressed(KEY_UP) :
-
-		anim_switch("walkup")
+		anim_switch_2("P2_walkup")
 	elif Input.is_key_pressed(KEY_DOWN):
-
-		print("current:",Singleton.player2.number_current_bomb)
-		print("number_bomb:",Singleton.player2.number_bomb)
-		anim_switch("walkdown")	
 		
-	if Input.is_key_pressed(KEY_SPACE):
+		anim_switch_2("P2_walkdown")	
+		
+	if Input.is_key_pressed(KEY_ENTER):
 
 		if Singleton.player2.number_current_bomb < Singleton.player2.number_bomb:
 			Singleton.player2.add_bomb()
@@ -137,10 +136,16 @@ func _input(event):
 	pass
 #
 func anim_switch(animation):
+#	print($Player2.get_node("AnimationPlayer").current_animation)
+	if $Player.get_node("AnimationPlayer").current_animation != "":
 
-	if player.get_node("AnimationPlayer").current_animation != "":
+		$Player.get_node("AnimationPlayer").play(animation)
+		
+func anim_switch_2(animation):
+#	print($Player2.get_node("AnimationPlayer").current_animation)
+	if $Player2.get_node("AnimationPlayer").current_animation != "":
 
-		player.get_node("AnimationPlayer").play(animation)
+		$Player2.get_node("AnimationPlayer").play(animation)
 
 func update_player1():
 	get_node("Control/Player1/hp").text = String($Player.hp)

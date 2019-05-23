@@ -5,7 +5,7 @@
 [ext_resource path="res://UI/home_img/back.png" type="Texture" id=3]
 [ext_resource path="res://UI/home_img/Back1.png" type="Texture" id=4]
 
-[node name="Control" type="Control" index="0"]
+[node name="Control" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0

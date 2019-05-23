@@ -6,10 +6,11 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 10, 9.75 )
 
-[node name="Bomb" type="Area2D" index="0"]
+[node name="Bomb" type="Area2D"]
 
+scale = Vector2( 1.17188, 1.17188 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -35,7 +36,8 @@ autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
-position = Vector2( -2.37584, 2.37585 )
+position = Vector2( -0.426664, 0.426664 )
+scale = Vector2( 1.60821, 1.57538 )
 shape = SubResource( 1 )
 
 [connection signal="body_entered" from="." to="." method="_on_Bomb_body_entered"]

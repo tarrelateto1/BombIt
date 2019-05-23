@@ -11,10 +11,10 @@ func _ready():
 
 func is_cell_vacant(pos):
 	var grid_pos = world_to_map(pos)
-#	print("x : ",grid_pos.x)
-#	print("y :",grid_pos.y)
-#	print("world : ",world_to_map(pos))
-#	print(grid_pos)
+	print("x : ",grid_pos.x)
+	print("y :",grid_pos.y)
+	print("world : ",world_to_map(pos))
+	print(grid_pos)
 	#ตรวจสอบตำแหน่งของ player ตำแหน่ง x	
 	
 	return grid_pos

@@ -45,6 +45,7 @@ func add_bomb():
 		var g = s_grid.is_cell_vacant(self.get_position())
 		#bomb.position = Vector2(170,70)
 		bomb.position = Vector2((g.x*s_grid.cell_size.x)+s_grid.cell_size.x/2,(g.y*s_grid.cell_size.y)+s_grid.cell_size.y/2)
+		print(bomb)
 		#bomb.position = Vector2($Player.get_position().x,$Player.get_position().y)
 #		print(number_current_bomb)
 #		print(number_bomb)

@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://wall/df8fe555346225307b36b7e6db34cc9f.jpg" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 12.79, 13.1993 )
+
+[node name="wall" type="KinematicBody2D"]
+
+scale = Vector2( 0.5, 0.5 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+_sections_unfolded = [ "Transform" ]
+
+[node name="terrain_atlas" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 95, 31, 33, 33 )
+_sections_unfolded = [ "Region" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( -0.174295, 0.181405 )
+scale = Vector2( 1.31665, 1.27459 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+

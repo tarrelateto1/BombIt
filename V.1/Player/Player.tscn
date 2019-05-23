@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Player/ละคร.png" type="Texture" id=2]
+[ext_resource path="res://Player/red.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 
@@ -35,10 +35,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.2, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 12, 12, 14 ]
+"values": [ 3, 4, 5, 3 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -57,7 +57,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 3, 7, 11, 15 ]
+"values": [ 6, 7, 8, 6 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -76,7 +76,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 2, 6, 10, 14 ]
+"values": [ 9, 10, 11, 9 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -107,27 +107,36 @@ length = 1.0
 loop = false
 step = 0.1
 
+[sub_resource type="CircleShape2D" id=9]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
 [node name="Player" type="KinematicBody2D"]
 
+scale = Vector2( 0.65625, 0.65625 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "collision" ]
+_sections_unfolded = [ "Collision", "Transform", "collision" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+position = Vector2( -0.385539, -0.38554 )
+scale = Vector2( 0.771084, 0.771084 )
 texture = ExtResource( 2 )
-vframes = 8
-hframes = 12
-frame = 12
-_sections_unfolded = [ "Animation", "Material", "Region", "Transform", "Visibility", "Z Index" ]
+vframes = 4
+hframes = 3
+frame = 2
+region_rect = Rect2( 0, 0, 50, 50 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 
 root_node = NodePath("..")
-autoplay = ""
+autoplay = "P1_walkleft"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
@@ -142,11 +151,10 @@ anims/P2_walkup = SubResource( 8 )
 blend_times = [  ]
 _sections_unfolded = [ "Pause", "Playback Options" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
-position = Vector2( -0.755599, -0.0955095 )
-scale = Vector2( 0.485801, 0.482624 )
-build_mode = 0
-polygon = PoolVector2Array( 10.8895, 11.0535, 6.25788, 12.34, 5.65749, 17.7436, 3.94209, 18.9443, -0.603729, 19.2016, -2.14759, 17.3147, -3.09106, 12.7689, -2.06182, 11.0535, -9.35228, 9.93847, -12.7831, 4.96381, -12.9546, -2.24088, -11.7538, -7.90171, -8.06573, -11.2467, -4.46339, -12.6191, 1.88361, -12.7048, 4.4567, -11.9329, 7.88751, -13.0479, 10.7179, -12.0187, 14.063, -8.75941, 13.9772, -6.61516, 15.0064, -3.95629, 13.2053, -0.95433, 11.6614, 0.76107, 12.3476, 3.50571, 11.3183, 9.76693, 11.3183, 9.93847 )
+position = Vector2( 3.6136, -1.60638 )
+scale = Vector2( 2.23944, 2.76455 )
+shape = SubResource( 9 )
 
 
