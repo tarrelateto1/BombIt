@@ -1,0 +1,179 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://UI/Home.gd" type="Script" id=1]
+[ext_resource path="res://UI/home_img/star.jpg" type="Texture" id=2]
+[ext_resource path="res://UI/home_img/play3.png" type="Texture" id=3]
+[ext_resource path="res://UI/home_img/play1.png" type="Texture" id=4]
+[ext_resource path="res://UI/home_img/Item.png" type="Texture" id=5]
+[ext_resource path="res://UI/home_img/Item1.png" type="Texture" id=6]
+[ext_resource path="res://UI/home_img/howto.png" type="Texture" id=7]
+[ext_resource path="res://UI/home_img/howto1.png" type="Texture" id=8]
+[ext_resource path="res://UI/home_img/bombbayah.png" type="Texture" id=9]
+[ext_resource path="res://UI/home_img/bomb.png" type="Texture" id=10]
+[ext_resource path="res://UI/home_img/bomb-transparent-pixel-6.png" type="Texture" id=11]
+[ext_resource path="res://UI/home_img/french.png" type="Texture" id=12]
+[ext_resource path="res://UI/home_img/pizza.png" type="Texture" id=13]
+[ext_resource path="res://UI/home_img/ice cream.png" type="Texture" id=14]
+
+[node name="Control" type="Control" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "Margin" ]
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="star" type="Sprite" parent="." index="0"]
+
+position = Vector2( 510, 300 )
+scale = Vector2( 1.00684, 0.78125 )
+texture = ExtResource( 2 )
+
+[node name="TextureButton" type="TextureButton" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 370.0
+margin_top = 380.0
+margin_right = 680.0
+margin_bottom = 500.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+expand = true
+_sections_unfolded = [ "Size Flags", "Textures" ]
+
+[node name="TextureButton2" type="TextureButton" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 700.0
+margin_top = 480.0
+margin_right = 900.0
+margin_bottom = 560.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+expand = true
+_sections_unfolded = [ "Textures" ]
+
+[node name="TextureButton3" type="TextureButton" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 130.0
+margin_top = 480.0
+margin_right = 330.0
+margin_bottom = 560.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 8 )
+expand = true
+_sections_unfolded = [ "Textures" ]
+
+[node name="bombbayah" type="Sprite" parent="." index="4"]
+
+position = Vector2( 460, 120 )
+scale = Vector2( 0.998047, 0.78125 )
+texture = ExtResource( 9 )
+
+[node name="bomb" type="Sprite" parent="bombbayah" index="0"]
+
+position = Vector2( 382.521, 9.61116 )
+rotation = 0.22156
+scale = Vector2( 0.184228, 0.241264 )
+texture = ExtResource( 10 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="bomb-transparent-pixel-6" type="Sprite" parent="bombbayah/bomb" index="0"]
+
+position = Vector2( -245, 217.574 )
+scale = Vector2( 1.6588, 1.45865 )
+texture = ExtResource( 11 )
+
+[node name="french" type="Sprite" parent="." index="5"]
+
+position = Vector2( 655.29, 430.366 )
+rotation = 0.174533
+scale = Vector2( 0.155153, 0.15132 )
+texture = ExtResource( 12 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="hotdog" type="Sprite" parent="." index="6"]
+
+position = Vector2( 901.908, 400.904 )
+rotation = 0.122173
+scale = Vector2( 0.322853, 0.341186 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="pizza" type="Sprite" parent="." index="7"]
+
+position = Vector2( 331.654, 522.855 )
+rotation = 0.174533
+scale = Vector2( 0.0647658, 0.0725 )
+texture = ExtResource( 13 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="ice cream" type="Sprite" parent="." index="8"]
+
+position = Vector2( 891.597, 522.494 )
+rotation = 0.174533
+scale = Vector2( 0.101056, 0.101626 )
+texture = ExtResource( 14 )
+_sections_unfolded = [ "Transform" ]
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
+
+[connection signal="pressed" from="TextureButton2" to="." method="_on_TextureButton2_pressed"]
+
+[connection signal="pressed" from="TextureButton3" to="." method="_on_TextureButton3_pressed"]
+
+
