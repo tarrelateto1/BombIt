@@ -1,11 +1,4 @@
-
-
-
-
 extends Node2D
-
-
-
 var spritedir = "down"
 var Bomb = preload("res://Bomb/Bomb.tscn")
 var Bomb1 = preload("res://Bomb/Bomb.tscn")
@@ -34,29 +27,36 @@ func _ready():
 	grid = get_node("TileMap")
 	for N in get_node("wall").get_children():
 		Singleton.list_wall.append(N)
+	for N in get_node("wall_side").get_children():
+		Singleton.list_wall.append(N)
 
 
 func _process(delta):
 	update_player1()
 	update_player2()
 	
+	if Singleton.player1.hp<1:
+		get_tree().change_scene("res://UI/P2_WIN.tscn")
+	if Singleton.player2.hp<1:
+		get_tree().change_scene("res://UI/P1_WIN.tscn")
+	
 	var v = Vector2()
 	
 
 	if Input.is_action_pressed("ui_left"):
-		v.x = -Singleton.player1.speed
+		v.x = -Singleton.player1.speed +((-Singleton.player1.speed * Singleton.player1.item_speed*10)/100)
 		spritedir = "P1_left"
 
 	elif Input.is_action_pressed("ui_right"):
-		v.x = Singleton.player1.speed
+		v.x = Singleton.player1.speed +((Singleton.player1.speed * Singleton.player1.item_speed*10)/100)
 		spritedir = "P1_right"
 
 	elif Input.is_action_pressed("ui_up"):
-		v.y = -Singleton.player1.speed
+		v.y = -Singleton.player1.speed +((-Singleton.player1.speed * Singleton.player1.item_speed*10)/100)
 		spritedir = "P1_up"
 
 	elif Input.is_action_pressed("ui_down"):
-		v.y = Singleton.player1.speed
+		v.y = Singleton.player1.speed +((Singleton.player1.speed * Singleton.player1.item_speed*10)/100)
 		spritedir = "P1_down"
 		
 		
@@ -70,16 +70,16 @@ func _process(delta):
 	var v1 = Vector2()
 	
 	if Input.is_key_pressed(KEY_LEFT):
-		v1.x = -Singleton.player2.speed
+		v1.x = -Singleton.player2.speed +((-Singleton.player2.speed * Singleton.player2.item_speed*10)/100)
 		spritedir = "P2_left"
 	elif Input.is_key_pressed(KEY_RIGHT):
-		v1.x = Singleton.player2.speed
+		v1.x = Singleton.player2.speed+((Singleton.player2.speed * Singleton.player2.item_speed*10)/100)
 		spritedir = "P2_right"
 	elif Input.is_key_pressed(KEY_UP):
-		v1.y = -Singleton.player2.speed
+		v1.y = -Singleton.player2.speed+((-Singleton.player2.speed * Singleton.player2.item_speed*10)/100)
 		spritedir = "P2_up"
 	elif Input.is_key_pressed(KEY_DOWN):
-		v1.y = Singleton.player2.speed
+		v1.y = Singleton.player2.speed+((Singleton.player2.speed * Singleton.player2.item_speed*10)/100)
 		spritedir = "P2_down"
 		
 		
@@ -153,6 +153,7 @@ func update_player1():
 	get_node("Control/Player1/fire").text = String($Player.range_bomb)
 	get_node("Control/Player1/num_bomb").text = String($Player.number_bomb)
 	get_node("Control/Player1/speed").text = String($Player.item_speed)
+	get_node("Control/Player1/num_shield").text = String($Player.shield)
 	pass
 
 func update_player2():
@@ -160,6 +161,7 @@ func update_player2():
 	get_node("Control/Player2/fire2").text = String($Player2.range_bomb)
 	get_node("Control/Player2/num_bomb2").text = String($Player2.number_bomb)
 	get_node("Control/Player2/speed2").text = String($Player2.item_speed)
+	get_node("Control/Player2/num_shield2").text = String($Player2.shield)
 	
 
 	

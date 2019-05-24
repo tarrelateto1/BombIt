@@ -24,5 +24,5 @@ func _on_Area2D_body_entered(body):
 		Singleton.player1.shield += 1
 		print("player1")
 		queue_free()
-	print("shield: ",Singleton.player2.shield)
+	print("shield: ",Singleton.player1.shield)
 	pass # replace with function body

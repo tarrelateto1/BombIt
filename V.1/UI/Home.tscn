@@ -1,19 +1,23 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://UI/Home.gd" type="Script" id=1]
 [ext_resource path="res://UI/home_img/star.jpg" type="Texture" id=2]
-[ext_resource path="res://UI/home_img/play3.png" type="Texture" id=3]
-[ext_resource path="res://UI/home_img/play1.png" type="Texture" id=4]
-[ext_resource path="res://UI/home_img/Item.png" type="Texture" id=5]
-[ext_resource path="res://UI/home_img/Item1.png" type="Texture" id=6]
-[ext_resource path="res://UI/home_img/howto.png" type="Texture" id=7]
-[ext_resource path="res://UI/home_img/howto1.png" type="Texture" id=8]
-[ext_resource path="res://UI/home_img/bombbayah.png" type="Texture" id=9]
-[ext_resource path="res://UI/home_img/bomb.png" type="Texture" id=10]
-[ext_resource path="res://UI/home_img/bomb-transparent-pixel-6.png" type="Texture" id=11]
-[ext_resource path="res://UI/home_img/french.png" type="Texture" id=12]
-[ext_resource path="res://UI/home_img/pizza.png" type="Texture" id=13]
-[ext_resource path="res://UI/home_img/ice cream.png" type="Texture" id=14]
+[ext_resource path="res://UI/home_img/cola2.png" type="Texture" id=3]
+[ext_resource path="res://UI/01a87adba05c957.png" type="Texture" id=4]
+[ext_resource path="res://UI/home_img/french.png" type="Texture" id=5]
+[ext_resource path="res://UI/home_img/hotdog.png" type="Texture" id=6]
+[ext_resource path="res://UI/home_img/bomb-transparent-pixel-6.png" type="Texture" id=7]
+[ext_resource path="res://UI/home_img/tnt.png" type="Texture" id=8]
+[ext_resource path="res://UI/home_img/play3.png" type="Texture" id=9]
+[ext_resource path="res://UI/home_img/play1.png" type="Texture" id=10]
+[ext_resource path="res://UI/home_img/Item.png" type="Texture" id=11]
+[ext_resource path="res://UI/home_img/Item1.png" type="Texture" id=12]
+[ext_resource path="res://UI/home_img/howto.png" type="Texture" id=13]
+[ext_resource path="res://UI/home_img/howto1.png" type="Texture" id=14]
+[ext_resource path="res://UI/home_img/bombbayah.png" type="Texture" id=15]
+[ext_resource path="res://UI/home_img/bomb.png" type="Texture" id=16]
+[ext_resource path="res://UI/home_img/pizza.png" type="Texture" id=17]
+[ext_resource path="res://UI/home_img/ice cream.png" type="Texture" id=18]
 
 [node name="Control" type="Control"]
 
@@ -37,9 +41,63 @@ __meta__ = {
 
 [node name="star" type="Sprite" parent="." index="0"]
 
-position = Vector2( 510, 300 )
+position = Vector2( 513, 300 )
 scale = Vector2( 1.00684, 0.78125 )
 texture = ExtResource( 2 )
+
+[node name="cola2" type="Sprite" parent="star" index="0"]
+
+position = Vector2( -251.965, 31.8722 )
+rotation = 0.223448
+scale = Vector2( 0.554187, 0.680679 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="cola" type="Sprite" parent="star" index="1"]
+
+position = Vector2( -312.125, 91.6723 )
+rotation = -0.300145
+scale = Vector2( 0.357402, 0.408996 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="french2" type="Sprite" parent="star" index="2"]
+
+position = Vector2( 367.559, 25.8352 )
+rotation = 0.0872665
+scale = Vector2( 0.322324, 0.327298 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="hotdog" type="Sprite" parent="star" index="3"]
+
+position = Vector2( 317.826, 85.76 )
+rotation = 0.349066
+scale = Vector2( 0.497025, 0.583047 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="bomb-transparent-pixel-6" type="Sprite" parent="star" index="4"]
+
+position = Vector2( 7.94568, 67.84 )
+scale = Vector2( 0.877419, 0.913867 )
+texture = ExtResource( 7 )
+
+[node name="tnt" type="Sprite" parent="star" index="5"]
+
+position = Vector2( 98.0515, 45.6996 )
+rotation = 0.261799
+scale = Vector2( 1.5152, 1.34334 )
+texture = ExtResource( 8 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="tnt2" type="Sprite" parent="star" index="6"]
+
+position = Vector2( 117.514, 80.4288 )
+rotation = 0.349066
+scale = Vector2( 1.52467, 1.36585 )
+texture = ExtResource( 8 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="TextureButton" type="TextureButton" parent="." index="1"]
 
@@ -62,8 +120,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 3 )
-texture_hover = ExtResource( 4 )
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
 expand = true
 _sections_unfolded = [ "Size Flags", "Textures" ]
 
@@ -88,8 +146,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 5 )
-texture_hover = ExtResource( 6 )
+texture_normal = ExtResource( 11 )
+texture_hover = ExtResource( 12 )
 expand = true
 _sections_unfolded = [ "Textures" ]
 
@@ -114,37 +172,37 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 7 )
-texture_hover = ExtResource( 8 )
+texture_normal = ExtResource( 13 )
+texture_hover = ExtResource( 14 )
 expand = true
 _sections_unfolded = [ "Textures" ]
 
 [node name="bombbayah" type="Sprite" parent="." index="4"]
 
-position = Vector2( 460, 120 )
+position = Vector2( 445, 117 )
 scale = Vector2( 0.998047, 0.78125 )
-texture = ExtResource( 9 )
+texture = ExtResource( 15 )
 
 [node name="bomb" type="Sprite" parent="bombbayah" index="0"]
 
 position = Vector2( 382.521, 9.61116 )
 rotation = 0.22156
 scale = Vector2( 0.184228, 0.241264 )
-texture = ExtResource( 10 )
+texture = ExtResource( 16 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="bomb-transparent-pixel-6" type="Sprite" parent="bombbayah/bomb" index="0"]
 
 position = Vector2( -245, 217.574 )
 scale = Vector2( 1.6588, 1.45865 )
-texture = ExtResource( 11 )
+texture = ExtResource( 7 )
 
 [node name="french" type="Sprite" parent="." index="5"]
 
 position = Vector2( 655.29, 430.366 )
 rotation = 0.174533
 scale = Vector2( 0.155153, 0.15132 )
-texture = ExtResource( 12 )
+texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="hotdog" type="Sprite" parent="." index="6"]
@@ -159,7 +217,7 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 331.654, 522.855 )
 rotation = 0.174533
 scale = Vector2( 0.0647658, 0.0725 )
-texture = ExtResource( 13 )
+texture = ExtResource( 17 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="ice cream" type="Sprite" parent="." index="8"]
@@ -167,7 +225,7 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 891.597, 522.494 )
 rotation = 0.174533
 scale = Vector2( 0.101056, 0.101626 )
-texture = ExtResource( 14 )
+texture = ExtResource( 18 )
 _sections_unfolded = [ "Transform" ]
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/4iOEn0Z.png-285ec3c74540c8abda75c8ef4cf97e8e.stex"
+path="res://.import/cola2.png-b81cad2141896787f4b02421e505c8df.stex"
 
 [deps]
 
-source_file="res://UI/4iOEn0Z.png"
-dest_files=[ "res://.import/4iOEn0Z.png-285ec3c74540c8abda75c8ef4cf97e8e.stex" ]
+source_file="res://UI/home_img/cola2.png"
+dest_files=[ "res://.import/cola2.png-b81cad2141896787f4b02421e505c8df.stex" ]
 
 [params]
 

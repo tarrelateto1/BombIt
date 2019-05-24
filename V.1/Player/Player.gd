@@ -8,6 +8,7 @@ var speed
 var range_bomb 		#update cola
 var number_bomb		 #update balloon
 var shield
+	
 var number_current_bomb
 var Bomb = preload("res://Bomb/Bomb.tscn")
 
